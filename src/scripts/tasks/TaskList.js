@@ -1,4 +1,5 @@
-import { getTasks } from "./TaskData";
+import { getTasks, useTasks } from "./TaskData.js";
+import { Task } from "./Task.js";
 
 export const TaskList = () => {
     let taskListContainer = document.querySelector(".task-list");

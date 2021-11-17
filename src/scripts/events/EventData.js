@@ -1,3 +1,8 @@
+/*
+    Author(s): Cameron Resuta
+    Purpose: This component exposes all event resources in the database.json for use by the client
+*/
+
 let events = []
 
 export const useEvents = () => {

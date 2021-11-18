@@ -1,16 +1,18 @@
 import { getTasks, useTasks } from "./TaskData.js";
 import { Task } from "./Task.js";
 
-export const TaskList = () => {
-    let taskListContainer = document.querySelector(".task-list");
-    let taskHTML = "";
-    taskListContainer.innerHTML = taskHTML
-    
+const contentTarget = document.querySelector(".task-list")
+
+export const NoteList = () => {
     getTasks()
     .then(() => {
+
             let tasksArray = useTasks();
-            tasksArray.forEach((singleTask) => {
-                partyGuestListContainer.innerHTML += Task(singleTask)
-            })
+            let taskHTML = "";
+
+            tasksArray.forEach(singleTask => {
+                taskHTML += Task(singleTask);
+            });
+            contentTarget.innerHTML = noteHTML
         });
 };

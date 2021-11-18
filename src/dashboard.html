@@ -529,8 +529,12 @@
               <p class="text-sm">Latest Articles Posted</p>
               <hr class="dark horizontal" />
               <div class="d-flex">
-                <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm">article posted 2 days ago</p>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary text-sm my-auto me-1 mb-0"
+                >
+                  New Article
+                </button>
               </div>
             </div>
           </div>
@@ -567,8 +571,12 @@
               <p class="text-sm">Latest Articles Posted</p>
               <hr class="dark horizontal" />
               <div class="d-flex">
-                <i class="material-icons text-sm my-auto me-1">schedule</i>
-                <p class="mb-0 text-sm">event posted 4 days ago</p>
+                <button
+                  type="button"
+                  class="btn btn-outline-success text-sm my-auto me-1 mb-0"
+                >
+                  New Event
+                </button>
               </div>
             </div>
           </div>
@@ -576,11 +584,10 @@
       </div>
 
       <!-- Row 2: Daily Tasks, Chat Messages, Friends  -->
-        <div class="row mb-4 m-3">
-          <div class="col-lg-6 col-md-6 mb-md-0 mb-4">
-            
-            <div class="card">
-              <div
+      <div class="row mb-4 m-3">
+        <div class="col-lg-6 col-md-6 mb-md-0 mb-4">
+          <div class="card">
+            <div
               class="
                 card-header
                 p-0
@@ -592,70 +599,28 @@
               "
             >
               <div
-                class="
-                  bg-gradient-info
-                  shadow-info
-                  border-radius-lg
-                  py-3
-                  pe-1
-                "
+                class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1"
               >
                 <div class="chart">
                   <!-- Container for articles, events, or messages -->
                 </div>
               </div>
             </div>
-              <div class="card-header pb-0">
-                <div class="row">
-                  <div class="col-lg-6 col-7">
-                    <h6>Daily Tasks</h6>
-                    <p class="text-sm mb-0">
-                      <i class="fa fa-check text-info" aria-hidden="true"></i>
-                      <span class="font-weight-bold ms-1">30 done</span> this
-                      month
-                    </p>
+            <div class="card-header pb-0">
+              <div class="row">
+                <div class="col-lg-6 col-7">
+                  <h6>Daily Tasks</h6>
+
+                  <!-- Daily Task Input Field -->  
+                  <div class="input-group input-group-outline my-3">
+                    <input type="text" class="form-control" placeholder="type a task to add">
+                    <button class="btn btn-info m-0" type="button" id="button-addon2">Add Task</button>
                   </div>
-                  <div class="col-lg-6 col-5 my-auto text-end">
-                    <div class="dropdown float-lg-end pe-4">
-                      <a
-                        class="cursor-pointer"
-                        id="dropdownTable"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        <i class="fa fa-ellipsis-v text-secondary"></i>
-                      </a>
-                      <ul
-                        class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5"
-                        aria-labelledby="dropdownTable"
-                      >
-                        <li>
-                          <a
-                            class="dropdown-item border-radius-md"
-                            href="javascript:;"
-                            >Action</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            class="dropdown-item border-radius-md"
-                            href="javascript:;"
-                            >Another action</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            class="dropdown-item border-radius-md"
-                            href="javascript:;"
-                            >Something else here</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+
                 </div>
               </div>
-            
+            </div>
+
               <div class="card-body px-0 pb-2">
                 <div class="table-responsive">
                   <table class="table align-items-center mb-0">
@@ -768,30 +733,30 @@
           <div class="col-lg-4 col-md-6">
             <div class="card h-100">
               <div
-              class="
-                card-header
-                p-0
-                position-relative
-                mt-n4
-                mx-3
-                z-index-2
-                bg-transparent
-              "
-            >
-              <div
                 class="
-                  bg-gradient-secondary
-                  shadow-secondary
-                  border-radius-lg
-                  py-3
-                  pe-1
+                  card-header
+                  p-0
+                  position-relative
+                  mt-n4
+                  mx-3
+                  z-index-2
+                  bg-transparent
                 "
               >
-                <div class="chart">
-                  <!-- Container for articles, events, or messages -->
+                <div
+                  class="
+                    bg-gradient-secondary
+                    shadow-secondary
+                    border-radius-lg
+                    py-3
+                    pe-1
+                  "
+                >
+                  <div class="chart">
+                    <!-- Container for articles, events, or messages -->
+                  </div>
                 </div>
               </div>
-            </div>
               <div class="card-header pb-0">
                 <h6>Chat Messages</h6>
                 <p class="text-sm mb-0">
@@ -807,30 +772,30 @@
           <div class="col-lg-2 col-md-2">
             <div class="card h-100">
               <div
-              class="
-                card-header
-                p-0
-                position-relative
-                mt-n4
-                mx-3
-                z-index-2
-                bg-transparent
-              "
-            >
-              <div
                 class="
-                  bg-gradient-secondary
-                  shadow-secondary
-                  border-radius-lg
-                  py-3
-                  pe-1
+                  card-header
+                  p-0
+                  position-relative
+                  mt-n4
+                  mx-3
+                  z-index-2
+                  bg-transparent
                 "
               >
-                <div class="chart">
-                  <!-- Container for articles, events, or messages -->
+                <div
+                  class="
+                    bg-gradient-secondary
+                    shadow-secondary
+                    border-radius-lg
+                    py-3
+                    pe-1
+                  "
+                >
+                  <div class="chart">
+                    <!-- Container for articles, events, or messages -->
+                  </div>
                 </div>
               </div>
-            </div>
               <div class="card-header pb-0">
                 <h6>Friends</h6>
                 <p class="text-sm mb-0">
@@ -842,7 +807,7 @@
             </div>
           </div>
         </div>
-      
+
         <footer class="footer py-4">
           <div class="container-fluid">
             <div class="row align-items-center justify-content-lg-between">

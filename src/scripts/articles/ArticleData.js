@@ -19,3 +19,9 @@ export const saveArticle = article => {
     body: JSON.stringify(article)
   }).then(getArticles);
 }
+
+export const deleteArticle = articleId => {
+  return fetch(`http://localhost:8088/articles/${articleId}`, {
+    method: "DELETE"
+  });
+}

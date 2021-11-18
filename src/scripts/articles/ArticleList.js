@@ -9,10 +9,9 @@ export const ArticleList = () => {
   getArticles().then(() => {
 
     // If articles are already rendered from initial page load remove them and the form and rebuild the article list
-    if (contentTarget.querySelector('.articles')) {
-      contentTarget.querySelector('.articles').remove();
-      document.querySelector('#article-form').remove();
-    }
+    if (contentTarget.querySelector('.articles')) contentTarget.querySelector('.articles').remove();
+    if (document.querySelector('#article-form')) document.querySelector('#article-form').remove();
+    
     
     // Building it up with a string variable so the articles div wraps around the articles
     let html = '<div class="articles">';

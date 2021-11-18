@@ -1,18 +1,18 @@
-import { getTasks, useTasks } from "./TaskData.js";
+import { getTasks, useTasks } from "./TaskDataProvider.js";
 import { Task } from "./Task.js";
 
 const contentTarget = document.querySelector(".task-list")
 
-export const NoteList = () => {
+export const TaskList = () => {
     getTasks()
     .then(() => {
 
             let tasksArray = useTasks();
             let taskHTML = "";
-
             tasksArray.forEach(singleTask => {
-                taskHTML += Task(singleTask);
+                if (singleTask.completed === false && singleTask.userId === +sessionStorage.activeUser){
+                taskHTML += Task(singleTask);}
             });
-            contentTarget.innerHTML = noteHTML
+            contentTarget.innerHTML = taskHTML
         });
 };

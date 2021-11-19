@@ -1,18 +1,27 @@
-/*
-    Author(s): Cameron Resuta
-    Purpose: This component exposes all article resources in the database.json for use by the client
-*/
-
-let articles = []
+let articles = [];
 
 export const useArticles = () => {
-    return articles.slice()
+  return articles.slice();
 }
 
 export const getArticles = () => {
-    return fetch("http://localhost:8088/articles")
-    .then(response => response.json())
-    .then(data => {
-        articles = data
-    })
+  return fetch('http://localhost:8088/articles')
+  .then(res => res.json())
+  .then(data => articles = data);
+}
+
+export const saveArticle = article => {
+  return fetch('http://localhost:8088/articles', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(article)
+  }).then(getArticles);
+}
+
+export const deleteArticle = articleId => {
+  return fetch(`http://localhost:8088/articles/${articleId}`, {
+    method: "DELETE"
+  });
 }

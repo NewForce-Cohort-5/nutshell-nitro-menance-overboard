@@ -46,7 +46,7 @@ const contentTarget = document.querySelector(".dashboard")
 //   })
 
     export const TaskForm = () => {
-        contentTarget.innerHTML = `
+        return `
         <input type="text" class="form-control" placeholder="type a task to add" id="task-name">
         <input type="date" class="form-control" id="task-date">
         <input type="date" class="form-control" id="task-expectedFinish">

@@ -1,13 +1,23 @@
-import { ArticleList } from "./articles/ArticleList.js"
-import {LogOutButton} from "./auth/LogoutButton.js"
+// import { ArticleList } from "./articles/ArticleList.js"
+// import {LogOutButton} from "./auth/LogoutButton.js"
 import { TaskForm } from "./tasks/TaskForm.js";
 import { TaskList } from "./tasks/TaskList.js";
+
+const contentTarget = document.querySelector('.dashboard')
 
 export const Nutshell = () => {
     // Render all your UI components here
   //   ArticleList();
   // LogOutButton();
-  return `
+  contentTarget.innerHTML = `
+  
+  <div class="
+  main-content
+  position-relative
+  max-height-vh-100
+  h-100
+  border-radius-lg
+">
   <nav
   class="
     navbar navbar-main navbar-expand-lg
@@ -166,6 +176,7 @@ export const Nutshell = () => {
           </div>
         </div>
       </div>
+
       <div class="card-header pb-0">
         <div class="row">
           <div class="col-lg-10 col-7">
@@ -365,8 +376,9 @@ export const Nutshell = () => {
       </div>
     </div>
   </footer>
+  </div>
 </div>
-</main>
+
 <div class="fixed-plugin">
 <div class="card shadow-lg">
   <div class="card-header pb-0 pt-3">
@@ -381,11 +393,11 @@ export const Nutshell = () => {
         <i class="material-icons">clear</i>
       </button>
     </div>
-    <!-- End Toggle Button -->
+    
   </div>
   <hr class="horizontal dark my-1" />
   <div class="card-body pt-sm-3 pt-0">
-    <!-- Sidebar Backgrounds -->
+    
     <div>
       <h6 class="mb-0">Sidebar Colors</h6>
     </div>

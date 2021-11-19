@@ -1,6 +1,10 @@
 import { saveArticle } from "./ArticleData.js";
 import { ArticleList } from "./ArticleList.js";
 
+const isValid = article => {
+  return ((article.title !== '' && article.title.length > 2) && (article.url.startsWith('https://') && article.url.match(/\.\w+/) !== null) && article.synopsis !== '');
+}
+
 export const ArticleForm = () => {
   return `
   <form id="article-form">
@@ -25,13 +29,18 @@ eventHub.addEventListener('click', e => {
       userId: +document.querySelector('#article_userId').value,
       date: new Date(Date.now()).toLocaleString()
     }
-
-    document.querySelector('#article_title').value = '';
-    document.querySelector('#article_url').value = '';
-    document.querySelector('#article_synopsis').value = '';
-    document.querySelector('#article_userId').value = '';
     
-    saveArticle(newArticle)
-    .then(ArticleList);
+    if (isValid(newArticle)) {
+      document.querySelector('#article_title').value = '';
+      document.querySelector('#article_url').value = '';
+      document.querySelector('#article_synopsis').value = '';
+      document.querySelector('#article_userId').value = '';
+      
+      saveArticle(newArticle)
+      .then(ArticleList);
+    } else {
+      alert('Please make sure all fields are filled out, Title has 3 characters and url has "https://" at the beginning');
+    }
+
   }
 });

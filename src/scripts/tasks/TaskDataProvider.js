@@ -22,3 +22,14 @@ export const saveTasks = task => {
     })
     .then(getTasks)
 }
+
+export const updateTask = task => {
+
+    return fetch(`http://localhost:8088/invited/${task.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(task)
+    })
+}

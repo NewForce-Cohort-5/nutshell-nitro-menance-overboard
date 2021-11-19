@@ -1,6 +1,6 @@
 import { TaskList } from "./TaskList.js"
 import { saveTasks } from "./TaskDataProvider.js"
-const contentTarget = document.querySelector(".task-form")
+const contentTarget = document.querySelector("#task-form")
 
 export const TaskForm = () => {
     contentTarget.innerHTML = `<form>

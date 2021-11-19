@@ -1,7 +1,7 @@
 import { getTasks, useTasks } from "./TaskDataProvider.js";
 import { Task } from "./Task.js";
 
-const contentTarget = document.querySelector(".task-list")
+const contentTarget = document.querySelector("#task-list")
 
 export const TaskList = () => {
     getTasks()

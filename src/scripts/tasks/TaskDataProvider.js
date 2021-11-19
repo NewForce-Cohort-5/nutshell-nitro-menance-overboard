@@ -25,11 +25,17 @@ export const saveTasks = task => {
 
 export const updateTask = task => {
 
-    return fetch(`http://localhost:8088/invited/${task.id}`, {
+    return fetch(`http://localhost:8088/tasks/${task.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(task)
+    })
+}
+
+export const deleteTask = taskId => {
+    return fetch(`http://localhost:8088/tasks/${taskId}`, {
+        method: "DELETE"
     })
 }

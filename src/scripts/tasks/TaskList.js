@@ -6,13 +6,14 @@ const contentTarget = document.querySelector(".task-list")
 
 
 export const TaskList = () => {
+
     // getTasks()
     // .then(() => {
        
             let tasksArray = useTasks();
             let taskHTML = "";
             tasksArray.forEach(singleTask => {
-                if (singleTask.userId === +sessionStorage.activeUser){
+                if (!singleTask.completed && singleTask.userId === +sessionStorage.activeUser){
                 taskHTML += Task(singleTask);
                 }
             });

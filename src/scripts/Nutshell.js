@@ -7,7 +7,7 @@ const contentTarget = document.querySelector('.dashboard')
 
 export const Nutshell = () => {
     // Render all your UI components here
-  //   ArticleList();
+    // ArticleList();
   // LogOutButton();
   contentTarget.innerHTML = `
   
@@ -231,16 +231,6 @@ export const Nutshell = () => {
                     "
                   >
                     Edit
-                  </th>
-                  <th
-                    class="
-                      text-uppercase text-secondary text-xxs
-                      font-weight-bolder
-                      opacity-7
-                      px-5
-                    "
-                  >
-                    Delete
                   </th>
                   <th
                     class="

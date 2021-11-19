@@ -60,6 +60,7 @@ contentTarget.addEventListener("click", clickEvent => {
            name: document.querySelector('#task-name').value,
            date: document.querySelector('#task-date').value,
            expectedFinish: document.querySelector('#task-expectedFinish').value,
+           completed: false,
            userId: +sessionStorage.activeUser
         }
         document.querySelector("#task-name").value = ""
@@ -68,4 +69,5 @@ contentTarget.addEventListener("click", clickEvent => {
         saveTasks(newTask)
         .then(TaskList)
     }
+    
   })

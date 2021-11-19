@@ -6,7 +6,7 @@ const contentTarget = document.querySelector('.dashboard');
 const eventHub = document.querySelector('#container');
 
 export const ArticleList = () => {
-  getArticles().then(() => {
+  // getArticles().then(() => {
 
     // If articles are already rendered from initial page load remove them and the form and rebuild the article list
     if (contentTarget.querySelector('.articles')) contentTarget.querySelector('.articles').remove();
@@ -20,8 +20,9 @@ export const ArticleList = () => {
     html += '</div>';
 
     // Add the html string to the inner contents container
-    contentTarget.innerHTML += html;
-  });
+    // contentTarget.innerHTML += html;
+    return html
+  // });
 }
 
 const render = articleCollection => {

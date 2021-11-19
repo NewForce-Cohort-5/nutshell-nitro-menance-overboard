@@ -9,6 +9,7 @@
 //         `
 // }
 
+
 export const Task = (task) => {
     return `
     <tr class="task-card">
@@ -39,15 +40,10 @@ export const Task = (task) => {
     </td>
     <td>
       <div class="form-check form-check-inline">
-        <i class="bi bi-trash m-4"></i>
-      </div>
-    </td>
-    <td>
-      <div class="form-check form-check-inline">
         <input
           class="form-check-input"
           type="checkbox"
-          id=""
+          id="completed-${task.id}"
           value="option1"
         />
       </div>

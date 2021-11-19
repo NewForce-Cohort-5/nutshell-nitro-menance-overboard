@@ -1,16 +1,54 @@
-import { deleteTask } from "./TaskDataProvider.js"
-import { TaskEditForm } from "./TaskEditForm.js"
-import { TaskList } from "./TaskList.js"
+// export const Task = (task) => {
+//     return `
+//         <section class="task-card">
+//             <div class="task-name">${task.name}</div>
+//             <div class="task-date">${new Date(task.date).toLocaleDateString('en-US')}</div>
+//             <div class="task-expectedFinish">${new Date(task.expectedFinish).toLocaleDateString('en-US')}</div>
+//             <div class="task-completed">${task.completed}</div>
+//         </section>
+//         `
+// }
+
 
 export const Task = (task) => {
     return `
-        <section class="task-card">
-            <div class="task-name">${task.name}</div>
-            <div class="task-date">${new Date(task.date).toLocaleDateString('en-US')}</div>
-            <div class="task-expectedFinish">${new Date(task.expectedFinish).toLocaleDateString('en-US')}</div>
-            <div class="task-completed">${task.completed}</div>
-            <button id="editTask--${task.id}">Edit</button>
-        </section>
+    <tr class="task-card">
+    <td>
+      <div class="form-check form-check-inline">
+        <h6 class="mb-0 text-sm task-date">${new Date(task.date).toLocaleDateString('en-US')}</h6>
+      </div>
+    </td>
+    <td>
+      <div class="d-flex px-2 py-1">
+        <div
+          class="d-flex flex-column justify-content-center"
+        >
+          <h6 class="mb-0 text-sm task-name">${task.name}</h6>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="form-check form-check-inline">
+        <h6 class="mb-0 text-sm task-expectedFinish">${new Date(task.expectedFinish).toLocaleDateString('en-US')}</h6>
+      </div>
+    </td>
+    
+    <td>
+      <div class="form-check form-check-inline">
+        <i class="bi bi-pencil-square m-3"></i>
+      </div>
+    </td>
+    <td>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="completed-${task.id}"
+          value="option1"
+        />
+      </div>
+    </td>
+  </tr>
         `
 }
 

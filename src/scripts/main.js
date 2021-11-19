@@ -1,8 +1,8 @@
+// import { ArticleList } from "./articles/ArticleList.js"
 import { LoginForm } from "./auth/LoginForm.js"
 import { RegisterForm } from "./auth/RegisterForm.js"
 import { Nutshell } from "./Nutshell.js"
-import { TaskForm } from "./tasks/TaskForm.js"
-import { TaskList } from "./tasks/TaskList.js"
+import { getTasks } from "./tasks/TaskDataProvider.js"
 
 
 /*
@@ -20,8 +20,8 @@ if(!activeUser){
     LoginForm()
     RegisterForm()
 } else {
-    Nutshell()
+    getTasks()
+    // .then(ArticleList)
+    .then(Nutshell)
+    // Nutshell()
 }
-
-TaskForm()
-TaskList()

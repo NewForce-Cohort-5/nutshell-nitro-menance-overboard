@@ -10,6 +10,7 @@ export const Article = (obj) => {
       <div>${obj.date}</div>
       <div><a href="${obj.url}">${obj.url}</a></div>
       <div><p>${obj.synopsis}</p></div>
+      <button id="edit-article-${obj.id}">Edit</button>
       <button id="delete-article-${obj.id}">Delete</button>
     </article>
   `;

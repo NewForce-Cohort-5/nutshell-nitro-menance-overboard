@@ -1,8 +1,14 @@
-import { saveArticle } from "./ArticleData.js";
+import { saveArticle, useArticles } from "./ArticleData.js";
 import { ArticleList } from "./ArticleList.js";
 
 const isValid = article => {
   return ((article.title !== '' && article.title.length > 2) && (article.url.startsWith('https://') && article.url.match(/\.\w+/) !== null) && article.synopsis !== '');
+}
+
+const setFormFields = article => {
+  document.querySelector('#article_title').value = article.title;
+  document.querySelector('#article_url').value = article.url;
+  document.querySelector('#article_synopsis').value = article.synopsis;
 }
 
 export const ArticleForm = () => {
@@ -17,6 +23,7 @@ export const ArticleForm = () => {
   `;
 }
 
+const contentTarget = document.querySelector('.dashboard');
 const eventHub = document.querySelector('#container');
 eventHub.addEventListener('click', e => {
   if (e.target.id === 'save-article') {
@@ -29,18 +36,28 @@ eventHub.addEventListener('click', e => {
       userId: +document.querySelector('#article_userId').value,
       date: new Date(Date.now()).toLocaleString()
     }
-    
+
     if (isValid(newArticle)) {
       document.querySelector('#article_title').value = '';
       document.querySelector('#article_url').value = '';
       document.querySelector('#article_synopsis').value = '';
-      document.querySelector('#article_userId').value = '';
       
       saveArticle(newArticle)
       .then(ArticleList);
     } else {
       alert('Please make sure all fields are filled out, Title has 3 characters and url has "https://" at the beginning');
     }
+
+  }
+
+  if (e.target.id.startsWith('edit-article')) {
+    e.preventDefault();
+    debugger;
+    const [,,articleId] = e.target.id.split('-');
+    const articleToEdit = useArticles().find(article => article.id === +articleId);
+
+    contentTarget.innerHTML += ArticleForm();
+    setFormFields(articleToEdit);
 
   }
 });

@@ -20,6 +20,16 @@ export const saveArticle = article => {
   }).then(getArticles);
 }
 
+export const updateArticle = article => {
+  return fetch(`http://localhost:8088/articles/${article.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(article)
+  }).then(getArticles);
+}
+
 export const deleteArticle = articleId => {
   return fetch(`http://localhost:8088/articles/${articleId}`, {
     method: "DELETE"

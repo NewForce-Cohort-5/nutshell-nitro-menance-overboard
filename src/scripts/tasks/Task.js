@@ -51,3 +51,12 @@ export const Task = (task) => {
   </tr>
         `
 }
+
+const eventHub = document.querySelector("body")
+
+eventHub.addEventListener("click", (eventObject) => {
+    if (eventObject.target.id.startsWith("editTask")) {
+      const taskId = +eventObject.target.id.split("--")[1]
+      TaskEditForm(taskId);
+    }
+  })

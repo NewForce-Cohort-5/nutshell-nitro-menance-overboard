@@ -31,6 +31,6 @@ const render = articleCollection => {
 
 eventHub.addEventListener('click', e => {
   if (e.target.id === 'new-article') {
-    contentTarget.innerHTML += ArticleForm();
+    if (!document.querySelector('#article-form')) contentTarget.innerHTML += ArticleForm();
   }
 });

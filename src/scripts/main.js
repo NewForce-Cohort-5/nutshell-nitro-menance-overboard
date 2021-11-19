@@ -1,6 +1,8 @@
 import { LoginForm } from "./auth/LoginForm.js"
 import { RegisterForm } from "./auth/RegisterForm.js"
 import { Nutshell } from "./Nutshell.js"
+import { TaskForm } from "./tasks/TaskForm.js"
+import { TaskList } from "./tasks/TaskList.js"
 
 
 /*
@@ -20,3 +22,6 @@ if(!activeUser){
 } else {
     Nutshell()
 }
+
+TaskForm()
+TaskList()

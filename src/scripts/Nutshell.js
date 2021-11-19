@@ -1,5 +1,5 @@
 // import { ArticleList } from "./articles/ArticleList.js"
-// import {LogOutButton} from "./auth/LogoutButton.js"
+import {LogOutButton} from "./auth/LogoutButton.js"
 import { TaskForm } from "./tasks/TaskForm.js";
 import { TaskList } from "./tasks/TaskList.js";
 
@@ -8,7 +8,7 @@ const contentTarget = document.querySelector('.dashboard')
 export const Nutshell = () => {
     // Render all your UI components here
     // ArticleList();
-  // LogOutButton();
+  LogOutButton();
   contentTarget.innerHTML = `
   
   <div class="
@@ -43,6 +43,7 @@ export const Nutshell = () => {
           <a
             href="javascript:;"
             class="nav-link text-body font-weight-bold px-0"
+            id="logout-button"
           >
             <i class="fa fa-user me-sm-1"></i>
             <span class="d-sm-inline d-none">Sign Out</span>

@@ -2,14 +2,16 @@ import { Nutshell } from "../Nutshell.js";
 import { TaskEditForm } from "./TaskEditForm.js";
 import { updateTask, useTasks } from "./TaskDataProvider.js";
 
+const formatDate = date => {
+  const getTheDate = date.split('T');
+  const dateSplit = getTheDate[0].split('-');
+  // This will definitely work for our app
+  return new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2]).toString().split(' ').slice(1, 4).join(' ');
+}
+
 export const Task = (task) => {
   return `
     <tr class="task-card">
-      <td>
-        <div class="form-check form-check-inline">
-          <h6 class="mb-0 text-sm task-date">${new Date(task.date).toLocaleDateString('en-US')}</h6>
-        </div>
-      </td>
       <td>
         <div class="d-flex px-2 py-1">
           <div
@@ -21,7 +23,7 @@ export const Task = (task) => {
       </td>
       <td>
         <div class="form-check form-check-inline">
-          <h6 class="mb-0 text-sm task-expectedFinish">${new Date(task.expectedFinish).toLocaleDateString('en-US')}</h6>
+          <h6 class="mb-0 text-sm task-expectedFinish">${formatDate(task.expectedFinish)}</h6>
         </div>
       </td>
       

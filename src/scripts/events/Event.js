@@ -2,7 +2,11 @@ import { Nutshell } from "../Nutshell.js";
 import { deleteEvent } from "./EventData.js";
 
 const formatDate = date => {
-  return new Date(date.split(', ')[0]).toString().split(' ').slice(0, 4).join(' ');
+  // return new Date(date.split(', ')[0]).toString().split(' ').slice(0, 4).join(' ');
+  const getTheDate = date.split('T');
+  const dateSplit = getTheDate[0].split('-');
+  // This will definitely work for our app
+  return new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2]).toString().split(' ').slice(1, 4).join(' ');
 }
 
 {/* <div>${obj.user.email} | <a href="${obj.url}">View Event</a></div> */}

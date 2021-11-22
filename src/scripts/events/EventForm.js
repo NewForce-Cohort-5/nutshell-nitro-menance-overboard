@@ -5,10 +5,14 @@ const isValid = event => {
   return ((event.title !== '' && event.title.length > 2) && (event.location !== '' && event.location.length > 2));
 }
 
-const setFormFields = event => {
+const formatToCalendar = date => {
+  return new Date(date).toISOString().split('T')[0];
+}
+
+export const setFormFields = event => {
     console.log(event.date.split(', ')[0])
   document.querySelector('#event_title').value = event.title;
-  document.querySelector('#event_date').value = event.date;
+  document.querySelector('#event_date').value = formatToCalendar(event.date);
   document.querySelector('#event_location').value = event.location;
   document.querySelector('#event_id').value = event.id;
 }
@@ -25,7 +29,7 @@ export const EventForm = (eventId = 0) => {
     </div>
     <label class="form-control-label">Date</label>
     <div class="input-group input-group-outline">
-      <input id="event_date" type="date" class="form-control" value="${eventWeWantToEdit}">
+      <input id="event_date" type="date" class="form-control" value="">
     </div>
     <label class="form-control-label">Location</label>
     <div class="input-group input-group-outline">
@@ -53,7 +57,8 @@ eventHub.addEventListener('click', e => {
       location: document.querySelector('#event_location').value,
       userId: +document.querySelector('#event_userId').value,
       id: +document.querySelector('#event_id').value,
-      date: new Date(Date.now()).toLocaleString()
+      date: new Date(document.querySelector('#event_date').value).toISOString()
+      // date: new Date(document.querySelector('#event_date').value).toISOString()
     }
 
     if (isValid(event)) {

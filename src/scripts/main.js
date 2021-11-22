@@ -31,5 +31,5 @@ if(!activeUser){
     .then(Nutshell)
 }
 
-console.log(activeUser)
-console.log(activeEmail)
+// console.log(activeUser)
+// console.log(activeEmail)

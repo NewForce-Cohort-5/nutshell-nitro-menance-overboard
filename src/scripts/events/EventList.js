@@ -6,11 +6,12 @@ const eventHub = document.querySelector('#container');
 
 export const EventList = () => {
     return `<div class="events d-flex">
-      ${render(useEvents().reverse())}
+      ${render(useEvents().sort((a,b) => new Date(b.date) - new Date(a.date)))}
     </div>`;
 }
 
 const render = eventCollection => {
+
     return eventCollection.map(event => Event(event)).join('');
 }
 
@@ -19,7 +20,7 @@ eventHub.addEventListener('click', e => {
         document.querySelector('#event-form-container').classList.remove('d-none');
         setFormFields({
           title: '',
-          date: '',
+          date: Date.now(),
           location: '',
           id: 0
         })

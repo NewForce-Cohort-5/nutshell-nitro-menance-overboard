@@ -1,25 +1,15 @@
-import { getTasks, useTasks } from "./TaskDataProvider.js";
+import { useTasks } from "./TaskDataProvider.js";
 import { Task } from "./Task.js";
 
-const contentTarget = document.querySelector(".task-list")
-// const contentTarget = document.querySelector(".dashboard")
 
 
 export const TaskList = () => {
 
-    // getTasks()
-    // .then(() => {
-       
-            let tasksArray = useTasks();
-            let taskHTML = "";
-            tasksArray.forEach(singleTask => {
-                if (!singleTask.completed && singleTask.userId === +sessionStorage.activeUser){
-                taskHTML += Task(singleTask);
-                }
-            });
-            
-            // contentTarget.innerHTML += taskHTML
-            return taskHTML
-
-        // });
+  const tasksArray = useTasks();
+  return tasksArray.map(singleTask => {
+    if (!singleTask.completed && singleTask.userId === +sessionStorage.activeUser){
+      return Task(singleTask);
+    }
+  }).join('');
+    
 };

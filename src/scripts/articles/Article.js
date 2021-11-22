@@ -1,17 +1,20 @@
+import { Nutshell } from "../Nutshell.js";
 import { deleteArticle } from "./ArticleData.js";
-import { ArticleList } from "./ArticleList.js";
+
+const formatDate = date => {
+  return new Date(date.split(', ')[0]).toString().split(' ').slice(0, 4).join(' ');
+}
 
 export const Article = (obj) => {
   return `
     <article id="article-${obj.id}">
-      <h2>${obj.title}</h2>
+      <h4>${obj.title}</h4>
       <!-- Author info should go here -->
-      <div>Posted by: ${obj.userId}</div>
-      <div>${obj.date}</div>
-      <div><a href="${obj.url}">${obj.url}</a></div>
+      <div>${obj.user.email} | <a href="${obj.url}">View Article</a></div>
+      <div>${formatDate(obj.date)}</div>
       <div><p>${obj.synopsis}</p></div>
-      <button id="edit-article-${obj.id}">Edit</button>
-      <button id="delete-article-${obj.id}">Delete</button>
+      <button id="edit-article-${obj.id}" type="button" class="btn btn-primary text-sm my-auto me-1 mb-0">Edit</button>
+      <button id="delete-article-${obj.id}" type="button" class="btn btn-primary text-sm my-auto me-1 mb-0">Delete</button>
     </article>
   `;
 }
@@ -23,7 +26,7 @@ eventHub.addEventListener('click', e => {
       e.preventDefault();
       const [,,articleId] = e.target.id.split('-');
       deleteArticle(articleId)
-      .then(ArticleList);
+      .then(Nutshell);
     }
   }
 });

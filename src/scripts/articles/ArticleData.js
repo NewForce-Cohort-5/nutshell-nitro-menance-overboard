@@ -5,7 +5,7 @@ export const useArticles = () => {
 }
 
 export const getArticles = () => {
-  return fetch('http://localhost:8088/articles')
+  return fetch('http://localhost:8088/articles?_expand=user')
   .then(res => res.json())
   .then(data => articles = data);
 }
@@ -33,5 +33,5 @@ export const updateArticle = article => {
 export const deleteArticle = articleId => {
   return fetch(`http://localhost:8088/articles/${articleId}`, {
     method: "DELETE"
-  });
+  }).then(getArticles);
 }

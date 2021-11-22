@@ -146,7 +146,6 @@ export const Nutshell = () => {
       <div class="card-body">
         <h6 class="mb-0">Events</h6>
         <p class="text-sm">Latest Articles Posted</p>
-        <hr class="dark horizontal" />
         <div class="d-flex">
           <button
             type="button"
@@ -155,6 +154,10 @@ export const Nutshell = () => {
             New Event
           </button>
         </div>
+        <div id="event-form-container" class="col-8 d-none">
+          
+        </div>
+        <hr class="dark horizontal" />
       </div>
     </div>
   </div>

@@ -5,7 +5,7 @@ const isValid = article => {
   return ((article.title !== '' && article.title.length > 2) && (article.url.startsWith('https://') && article.url.match(/\.\w+/) !== null) && article.synopsis !== '');
 }
 
-const setFormFields = article => {
+export const setFormFields = article => {
   document.querySelector('#article_title').value = article.title;
   document.querySelector('#article_url').value = article.url;
   document.querySelector('#article_synopsis').value = article.synopsis;
@@ -37,7 +37,6 @@ export const ArticleForm = (articleId = 0) => {
   `;
 }
 
-const contentTarget = document.querySelector('.dashboard');
 const eventHub = document.querySelector('#container');
 eventHub.addEventListener('click', e => {
   if (e.target.id === 'save-article') {
@@ -50,7 +49,7 @@ eventHub.addEventListener('click', e => {
       synopsis: document.querySelector('#article_synopsis').value,
       userId: +document.querySelector('#article_userId').value,
       id: +document.querySelector('#article_id').value,
-      date: new Date(Date.now()).toLocaleString()
+      date: new Date(Date.now()).toISOString()
     }
 
     if (isValid(article)) {

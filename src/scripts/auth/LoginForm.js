@@ -23,6 +23,7 @@ eventHub.addEventListener("click", e => {
                     const user = users[0]
                     // Add their id to session storage, which logs them in
                     sessionStorage.setItem("activeUser", user.id)
+                    sessionStorage.setItem("activeEmail", user.email)
 
                     // clear both forms
                     document.querySelector(".auth--login").innerHTML = ""

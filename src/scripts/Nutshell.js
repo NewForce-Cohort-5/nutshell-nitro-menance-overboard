@@ -145,13 +145,16 @@ export const Nutshell = () => {
           </div>
         </div>
       </div>
+
       <div class="card-body">
-        <h6 class="mb-0">Events</h6>
-        <p class="text-sm">Latest Articles Posted</p>
-        <div class="d-flex">
+      <div class="row">
+        <div class="col-4">
+          <h6 class="mb-0">Events</h6>
+          <p class="text-sm">Latest Events Posted</p>
           <button
             type="button"
             class="btn btn-success text-sm my-auto me-1 mb-0"
+            id="new-event"
           >
             New Event
           </button>
@@ -159,9 +162,10 @@ export const Nutshell = () => {
         <div id="event-form-container" class="col-8 d-none">
         ${EventForm()}
         </div>
-        <hr class="dark horizontal" />
-        ${EventList()}
       </div>
+      <hr class="dark horizontal" />
+      ${EventList()}
+    </div>
     </div>
   </div>
 </div>

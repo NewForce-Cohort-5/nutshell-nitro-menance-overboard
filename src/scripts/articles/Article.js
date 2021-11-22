@@ -13,8 +13,8 @@ export const Article = (obj) => {
       <div>${obj.user.email} | <a href="${obj.url}">View Article</a></div>
       <div>${formatDate(obj.date)}</div>
       <div><p>${obj.synopsis}</p></div>
-      <button id="edit-article-${obj.id}" type="button" class="btn btn-primary text-sm my-auto me-1 mb-0">Edit</button>
-      <button id="delete-article-${obj.id}" type="button" class="btn btn-primary text-sm my-auto me-1 mb-0">Delete</button>
+      <button id="edit-article-${obj.id}" type="button" class="btn btn-primary btn-sm text-sm my-auto me-1 mb-0">Edit</button>
+      <button id="delete-article-${obj.id}" type="button" class="btn btn-primary btn-sm text-sm my-auto me-1 mb-0">Delete</button>
     </article>
   `;
 }

@@ -10,7 +10,7 @@ export const Article = (obj) => {
     <article id="article-${obj.id}">
       <h4>${obj.title}</h4>
       <!-- Author info should go here -->
-      <div>${obj.user.email} | <a href="${obj.url}">View Article</a></div>
+      <div>${obj.user.email} | <a href="${obj.url}" target="_blank" rel="noopener noreferrer">View Article</a></div>
       <div>${formatDate(obj.date)}</div>
       <div><p>${obj.synopsis}</p></div>
       <button id="edit-article-${obj.id}" type="button" class="btn btn-primary btn-sm text-sm my-auto me-1 mb-0">Edit</button>

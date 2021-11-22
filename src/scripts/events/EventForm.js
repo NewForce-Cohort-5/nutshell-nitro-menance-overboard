@@ -54,8 +54,8 @@ eventHub.addEventListener('click', e => {
 
     if (isValid(event)) {
       document.querySelector('#event_title').value = '';
+      document.querySelector('#event_date').value = '';
       document.querySelector('#event_location').value = '';
-      
       
       if(e.target.textContent === 'Save Event') {
         saveEvent(event)

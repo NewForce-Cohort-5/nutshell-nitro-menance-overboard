@@ -28,17 +28,17 @@ export const saveEvent = event => {
   }
   
   export const updateEvent = event => {
-    return fetch(`http://localhost:8088/articles/${event.id}`, {
+    return fetch(`http://localhost:8088/events/${event.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(event)
-    }).then(getArticles);
+    }).then(getEvents);
   }
   
   export const deleteEvent = eventId => {
-    return fetch(`http://localhost:8088/articles/${eventId}`, {
+    return fetch(`http://localhost:8088/events/${eventId}`, {
       method: "DELETE"
     }).then(getEvents);
   }

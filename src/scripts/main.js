@@ -26,5 +26,4 @@ if(!activeUser){
     .then(getArticles)
     .then(getEvents)
     .then(Nutshell)
-    // Nutshell()
 }

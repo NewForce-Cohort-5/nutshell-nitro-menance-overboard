@@ -2,7 +2,7 @@ import { Nutshell } from "../Nutshell.js";
 import { saveEvent, useEvents, updateEvent } from "./EventData.js";
 
 const isValid = event => {
-  return ((event.title !== '' && event.title.length > 2) && (article.location !== '' && event.location.length > 2));
+  return ((event.title !== '' && event.title.length > 2) && (event.location !== '' && event.location.length > 2));
 }
 
 const setFormFields = event => {
@@ -25,7 +25,7 @@ export const EventForm = (eventId = 0) => {
     </div>
     <label class="form-control-label">Location</label>
     <div class="input-group input-group-outline">
-      <input id="event_location" class="form-control" type="text" placeholder="Enter location...">
+      <input id="event_location" class="form-control" type="text" placeholder="Enter Location...">
     </div>
     <div class="input-group input-group-outline">
       <input id="event_id" class="form-control" type="number" value=${eventId} hidden>
@@ -46,16 +46,16 @@ eventHub.addEventListener('click', e => {
     // The event is now shared between the create and edit event form
     const event = {
       title: document.querySelector('#event_title').value,
-      url: document.querySelector('#article_url').value,
-      synopsis: document.querySelector('#article_synopsis').value,
-      userId: +document.querySelector('#article_userId').value,
-      id: +document.querySelector('#article_id').value,
+      location: document.querySelector('#event_location').value,
+      userId: +document.querySelector('#event_userId').value,
+      id: +document.querySelector('#event_id').value,
       date: new Date(Date.now()).toLocaleString()
     }
 
     if (isValid(event)) {
       document.querySelector('#event_title').value = '';
       document.querySelector('#event_location').value = '';
+      
       
       if(e.target.textContent === 'Save Event') {
         saveEvent(event)
@@ -73,12 +73,12 @@ eventHub.addEventListener('click', e => {
   if (e.target.id.startsWith('edit-event')) {
     e.preventDefault();
     // Equivalent to 
-    // const articleId = e.target.id.split('-')[2];
+    // const eventId = e.target.id.split('-')[2];
     const [,,eventId] = e.target.id.split('-');
     const eventToEdit = useEvents().find(event => event.id === +eventId);
 
     // Render the form as if it were new
-    document.querySelector('event-form-container').classList.remove('d-none');
+    document.querySelector('#event-form-container').classList.remove('d-none');
     // Make the button say Edit Event instead of Save Event
     document.querySelector('#save-event').textContent = 'Edit Event';
     // Set the form fields to match the contents of the event user wishes to edit

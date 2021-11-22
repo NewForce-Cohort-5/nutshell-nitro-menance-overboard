@@ -1,5 +1,6 @@
-// import { ArticleList } from "./articles/ArticleList.js"
-import {LogOutButton} from "./auth/LogoutButton.js"
+import { ArticleForm } from "./articles/ArticleForm.js";
+import { ArticleList } from "./articles/ArticleList.js"
+import { LogOutButton } from "./auth/LogoutButton.js"
 import { TaskForm } from "./tasks/TaskForm.js";
 import { TaskList } from "./tasks/TaskList.js";
 
@@ -7,8 +8,6 @@ const contentTarget = document.querySelector('.dashboard')
 
 export const Nutshell = () => {
     // Render all your UI components here
-    // ArticleList();
-  LogOutButton();
   contentTarget.innerHTML = `
   
   <div class="
@@ -46,7 +45,7 @@ export const Nutshell = () => {
             id="logout-button"
           >
             <i class="fa fa-user me-sm-1"></i>
-            <span class="d-sm-inline d-none">Sign Out</span>
+            ${LogOutButton()}
           </a>
         </li>
         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -96,17 +95,24 @@ export const Nutshell = () => {
         </div>
       </div>
       <div class="card-body">
-        <h6 class="mb-0">News Articles</h6>
-        <p class="text-sm">Latest Articles Posted</p>
-        <hr class="dark horizontal" />
-        <div class="d-flex">
-          <button
-            type="button"
-            class="btn btn-primary text-sm my-auto me-1 mb-0"
-          >
-            New Article
-          </button>
+        <div class="row">
+          <div class="col-4">
+            <h6 class="mb-0">News Articles</h6>
+            <p class="text-sm">Latest Articles Posted</p>
+            <button
+              type="button"
+              class="btn btn-primary text-sm my-auto me-1 mb-0"
+              id="new-article"
+            >
+              New Article
+            </button>
+          </div>
+          <div id="article-form-container" class="col-8 d-none">
+          ${ArticleForm()}
+          </div>
         </div>
+        <hr class="dark horizontal" />
+        ${ArticleList()}
       </div>
     </div>
   </div>
@@ -180,7 +186,7 @@ export const Nutshell = () => {
 
       <div class="card-header pb-0">
         <div class="row">
-          <div class="col-lg-10 col-7">
+          <div class="col">
             <h6>Daily Tasks</h6> 
             <div class="input-group input-group-outline my-3 task-form">
               ${TaskForm()}

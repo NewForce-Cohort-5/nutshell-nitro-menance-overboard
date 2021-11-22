@@ -111,7 +111,7 @@ export const Nutshell = () => {
           ${ArticleForm()}
           </div>
         </div>
-        <hr class="dark horizontal" />
+        <hr class="dark horizontal article-hr" />
         ${ArticleList()}
       </div>
     </div>
@@ -188,7 +188,12 @@ export const Nutshell = () => {
         <div class="row">
           <div class="col">
             <h6>Daily Tasks</h6> 
-            <div class="input-group input-group-outline my-3 task-form">
+            <div class="input-group justify-content-between">
+              <label>Name</label>
+              <label>Expected Finish Date</label>
+              <label></label>
+            </div>
+            <div class="input-group input-group-outline task-form">
               ${TaskForm()}
             </div>
           </div>
@@ -200,16 +205,6 @@ export const Nutshell = () => {
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th
-                    class="
-                      text-uppercase text-secondary text-xxs
-                      font-weight-bolder
-                      opacity-7
-                      px-4
-                    "
-                  >
-                    Date
-                  </th>
                   <th
                     class="
                       text-uppercase text-secondary text-xxs

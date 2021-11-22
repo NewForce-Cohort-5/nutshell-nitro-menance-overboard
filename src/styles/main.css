@@ -1,0 +1,22 @@
+/* Articles */
+.article-hr {
+  margin-bottom: 0;
+}
+
+.articles {
+  max-height: 225px;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+.articles article {
+  flex-basis: 33.33%;
+  margin-top: 1em;
+}
+
+/* Remove border radius from the center input */
+
+#task-expectedFinish {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}

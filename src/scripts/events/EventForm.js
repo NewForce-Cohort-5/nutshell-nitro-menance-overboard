@@ -6,6 +6,7 @@ const isValid = event => {
 }
 
 const setFormFields = event => {
+    console.log(event.date.split(', ')[0])
   document.querySelector('#event_title').value = event.title;
   document.querySelector('#event_date').value = event.date;
   document.querySelector('#event_location').value = event.location;
@@ -13,6 +14,10 @@ const setFormFields = event => {
 }
 
 export const EventForm = (eventId = 0) => {
+    if(eventId) {
+        const allEvents = useEvents();
+        const eventWeWantToEdit = allEvents.find(singleEvent=> singleEvent.id === +eventId);
+    }
   return `
   <form id="event-form">
     <label class="form-control-label">Name</label>
@@ -21,7 +26,7 @@ export const EventForm = (eventId = 0) => {
     </div>
     <label class="form-control-label">Date</label>
     <div class="input-group input-group-outline">
-      <input id="event_date" type="date" class="form-control">
+      <input id="event_date" type="date" class="form-control" value="${eventWeWantToEdit.date.split(', ')[0]}">
     </div>
     <label class="form-control-label">Location</label>
     <div class="input-group input-group-outline">

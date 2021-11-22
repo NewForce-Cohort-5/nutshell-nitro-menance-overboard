@@ -5,6 +5,8 @@ import { TaskForm } from "./tasks/TaskForm.js";
 import { TaskList } from "./tasks/TaskList.js";
 import { EventForm } from "./events/EventForm.js";
 import { EventList } from "./events/EventList.js";
+import { MessageForm } from "./messages/MessageForm.js";
+import { MessageList } from "./messages/MessageList.js";
 
 const contentTarget = document.querySelector('.dashboard')
 
@@ -299,9 +301,11 @@ export const Nutshell = () => {
         <div class="card-header pb-0">
           <h6>Chat Messages</h6>
           <p class="text-sm mb-0">
-            <i class="bi bi-bell"></i>
-            <span class="font-weight-bold ms-1">5 new</span> messages
+          <!--<i class="bi bi-bell"></i>
+            <span class="font-weight-bold ms-1">5 new</span> messages-->
+            
           </p>
+          ${MessageList()}
         </div>
         
         <div class="card-body p-3">
@@ -313,8 +317,7 @@ export const Nutshell = () => {
           </div>
           <!-- New Message Input Field -->  
           <div class="input-group input-group-outline my-3">
-            <input type="text" class="form-control" placeholder="type a message to send">
-            <button class="btn btn-secondary bg-gradient-secondary m-0" type="button" id="">Send</button>
+            ${MessageForm()}
           </div>
         </div>
       </div>

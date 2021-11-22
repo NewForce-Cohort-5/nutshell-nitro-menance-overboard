@@ -5,6 +5,7 @@ import { RegisterForm } from "./auth/RegisterForm.js"
 import { getEvents } from "./events/EventData.js"
 import { Nutshell } from "./Nutshell.js"
 import { getTasks } from "./tasks/TaskDataProvider.js"
+import { getMessages } from "./messages/MessageData.js"
 
 
 /*
@@ -17,6 +18,7 @@ import { getTasks } from "./tasks/TaskDataProvider.js"
 
 
 const activeUser = sessionStorage.getItem("activeUser")
+const activeEmail = sessionStorage.getItem("activeEmail")
 
 if(!activeUser){
     LoginForm()
@@ -25,5 +27,9 @@ if(!activeUser){
     getTasks()
     .then(getArticles)
     .then(getEvents)
+    .then(getMessages)
     .then(Nutshell)
 }
+
+console.log(activeUser)
+console.log(activeEmail)

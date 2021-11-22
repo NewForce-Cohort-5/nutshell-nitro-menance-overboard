@@ -33,6 +33,7 @@ eventHub.addEventListener("click", (e) => {
               .then((newUser) => {
                 // Once we register them, log them in
                 sessionStorage.setItem("activeUser", newUser.id);
+                sessionStorage.setItem("activeEmail", newUser.email);
 
                 // clear both forms
                 document.querySelector(".auth--login").innerHTML = "";

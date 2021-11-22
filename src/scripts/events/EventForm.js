@@ -1,5 +1,5 @@
 import { Nutshell } from "../Nutshell.js";
-import { saveEvent, useEvents, updateEvents } from "./EventData.js";
+import { saveEvent, useEvents, updateEvent } from "./EventData.js";
 
 const isValid = event => {
   return ((event.title !== '' && event.title.length > 2) && (article.location !== '' && event.location.length > 2));
@@ -70,19 +70,19 @@ eventHub.addEventListener('click', e => {
 
   }
 
-  if (e.target.id.startsWith('edit-article')) {
+  if (e.target.id.startsWith('edit-event')) {
     e.preventDefault();
     // Equivalent to 
     // const articleId = e.target.id.split('-')[2];
-    const [,,articleId] = e.target.id.split('-');
-    const articleToEdit = useArticles().find(article => article.id === +articleId);
+    const [,,eventId] = e.target.id.split('-');
+    const eventToEdit = useEvents().find(event => event.id === +eventId);
 
     // Render the form as if it were new
-    document.querySelector('#article-form-container').classList.remove('d-none');
-    // Make the button say Edit Article instead of Save Article
-    document.querySelector('#save-article').textContent = 'Edit Article';
-    // Set the form fields to match the contents of the article user wishes to edit
-    setFormFields(articleToEdit);
+    document.querySelector('event-form-container').classList.remove('d-none');
+    // Make the button say Edit Event instead of Save Event
+    document.querySelector('#save-event').textContent = 'Edit Event';
+    // Set the form fields to match the contents of the event user wishes to edit
+    setFormFields(eventToEdit);
 
   }
 });

@@ -3,6 +3,8 @@ import { ArticleList } from "./articles/ArticleList.js"
 import { LogOutButton } from "./auth/LogoutButton.js"
 import { TaskForm } from "./tasks/TaskForm.js";
 import { TaskList } from "./tasks/TaskList.js";
+import { EventForm } from "./events/EventForm.js";
+import { EventList } from "./events/EventList.js";
 
 const contentTarget = document.querySelector('.dashboard')
 
@@ -155,9 +157,10 @@ export const Nutshell = () => {
           </button>
         </div>
         <div id="event-form-container" class="col-8 d-none">
-          
+        ${EventForm()}
         </div>
         <hr class="dark horizontal" />
+        ${EventList()}
       </div>
     </div>
   </div>

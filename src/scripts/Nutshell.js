@@ -303,7 +303,8 @@ export const Nutshell = () => {
              </button>
           </div>-->
           <!-- New Message Input Field -->  
-          <div class="input-group input-group-outline my-3">
+          <div class="input-group input-group-outline my-3 message-edit-form"></div>
+          <div class="input-group input-group-outline my-3 message-form">
             ${MessageForm()}
           </div>
         </div>

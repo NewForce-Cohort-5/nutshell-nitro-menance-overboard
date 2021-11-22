@@ -8,15 +8,19 @@ export const MessageEditForm = (messageId) => {
     
     return `
       <input type="text" class="form-control" id="message-text" value="${messageWeWantToEdit.text}" />
-      <button id="saveMessageChanges-${messageId}" class="btn btn-info m-0">Save Changes</button>
+      <button id="saveMessageChanges-${messageId}" class="btn btn-secondary bg-gradient-secondary m-0">Save Changes</button>
     `;
   }
 
   const eventHub = document.querySelector("body");
   eventHub.addEventListener("click", (eventObject) => {
-  if(eventObject.target.id.startsWith("saveTaskChanges")){
+    var today = new Date();
+    var date = (today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear();
+    var currentTime= new Date().toLocaleTimeString();
+    var timestamp = date+' '+currentTime;
+  if(eventObject.target.id.startsWith("saveMessageChanges")){
     const editedMessage = {
-      text: document.querySelector('#task-name').value,
+      text: document.querySelector('#message-text').value,
       timestamp: timestamp,
       userId: +sessionStorage.activeUser,
       email: sessionStorage.activeEmail,

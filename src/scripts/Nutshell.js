@@ -165,7 +165,7 @@ export const Nutshell = () => {
         ${EventForm()}
         </div>
       </div>
-      <hr class="dark horizontal" />
+      <hr class="dark horizontal event-hr" />
       ${EventList()}
     </div>
     </div>
@@ -369,7 +369,7 @@ export const Nutshell = () => {
             <script>
               document.write(new Date().getFullYear());
             </script>
-            ,
+            2021,
             <a
               href="https://github.com/NewForce-Cohort-5/nutshell-nitro-menance-overboard"
               class="font-weight-bold"

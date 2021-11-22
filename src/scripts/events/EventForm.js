@@ -10,7 +10,7 @@ const formatToCalendar = date => {
 }
 
 export const setFormFields = event => {
-    console.log(event.date.split(', ')[0])
+    console.log(event.date)
   document.querySelector('#event_title').value = event.title;
   document.querySelector('#event_date').value = formatToCalendar(event.date);
   document.querySelector('#event_location').value = event.location;

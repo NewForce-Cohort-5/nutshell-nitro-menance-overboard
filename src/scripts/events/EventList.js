@@ -5,7 +5,7 @@ import { setFormFields } from "./EventForm.js";
 const eventHub = document.querySelector('#container');
 
 export const EventList = () => {
-    return `<div class="events">
+    return `<div class="events d-flex">
       ${render(useEvents().reverse())}
     </div>`;
 }
@@ -16,7 +16,7 @@ const render = eventCollection => {
 
 eventHub.addEventListener('click', e => {
     if (e.target.id === 'new-event') {
-        document.querySelector('#event-form-container').classList
+        document.querySelector('#event-form-container').classList.remove('d-none');
         setFormFields({
           title: '',
           date: '',

@@ -1,11 +1,11 @@
 let articleTags = [];
 
-export const useArticlesTags = () => {
+export const useArticleTags = () => {
   return articleTags.slice();
 }
 
-export const getArticlesTags = () => {
-  return fetch('http://localhost:8088/articletags?_expand=user&_expand=article')
+export const getArticleTags = () => {
+  return fetch('http://localhost:8088/articletags?_expand=tag&_expand=article')
   .then(res => res.json())
   .then(data => articleTags = data);
 }
@@ -17,7 +17,7 @@ export const saveArticleTag = articleTag => {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(articleTag)
-  }).then(getArticles);
+  });
 }
 
 export const updateArticleTag = articleTag => {
@@ -27,11 +27,11 @@ export const updateArticleTag = articleTag => {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(articleTag)
-  }).then(getArticles);
+  });
 }
 
 export const deleteArticleTag = articleTagId => {
   return fetch(`http://localhost:8088/articletags/${articleTagId}`, {
     method: "DELETE"
-  }).then(getArticles);
+  }).then(getArticleTags);
 }

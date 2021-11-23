@@ -1,3 +1,4 @@
+import { getArticleTags, saveArticleTag } from "../articletags/ArticleTagData.js";
 import { Nutshell } from "../Nutshell.js";
 import { saveTag, useTags } from "../tags/TagData.js";
 import { saveArticle, useArticles, updateArticle } from "./ArticleData.js";
@@ -57,23 +58,27 @@ eventHub.addEventListener('click', e => {
       date: new Date(Date.now()).toISOString()
     }
 
+    const articleTagsElement = document.querySelector('#article_tags');
+
+    const isAnyTags = articleTagsElement.value !== ''
+
     // Get the tag names from the input field and separate them into an array by commas
-    const tagNames = document.querySelector('#article_tags').value.split(',')
+    const tagNames = articleTagsElement.value.split(',')
     // Trim all whitespace from the names
     .map(t => t.trim());
 
-    // Get all of the tags which are already in the db
-    const savedTagNames = tagNames.filter(tag => useTags().find(savedTag => tag.toLowerCase() === savedTag.label.toLowerCase()));
-
-    // Get all of the tags that don't have a spot yet in the db
-    const tagsThatNeedSaved = tagNames.filter(tag => !savedTagNames.find(savedTag => tag.toLowerCase() === savedTag.toLowerCase()));
-
-    if (tagsThatNeedSaved.length) {
-      tagsThatNeedSaved.forEach(tag => saveTag(tag));
+    if (isAnyTags) {
+  
+      // Get all of the tags which are already in the db
+      const savedTagNames = tagNames.filter(tag => useTags().find(savedTag => tag.toLowerCase() === savedTag.label.toLowerCase()));
+  
+      // Get all of the tags that don't have a spot yet in the db
+      const tagsThatNeedSaved = tagNames.filter(tag => !savedTagNames.find(savedTag => tag.toLowerCase() === savedTag.toLowerCase()));
+  
+      if (tagsThatNeedSaved.length) {
+        tagsThatNeedSaved.forEach(tag => saveTag({ label: tag }));
+      }
     }
-
-    
-    debugger;
 
     if (isValid(article)) {
       document.querySelector('#article_title').value = '';
@@ -82,20 +87,29 @@ eventHub.addEventListener('click', e => {
       document.querySelector('#article_synopsis').value = '';
       
       if(e.target.textContent === 'Save Article') {
+        
         saveArticle(article)
         .then(articles => {
-          const newlyPostedArticleId = articles[articles.length - 1].id;
-          tagNames.forEach(tag => {
-            const articleTag = {
-              articleId: newlyPostedArticleId,
-              
-            }
-          });
+          if (isAnyTags) {
+            const newlyPostedArticleId = articles[articles.length - 1].id;
+            const savedTagNames = useTags().filter(tag => tagNames.find(t => tag.label.toLowerCase() === t.toLowerCase()));
+            savedTagNames.forEach(tag => saveArticleTag({ articleId: newlyPostedArticleId, tagId: tag.id }));
+          }
         })
+        .then(getArticleTags)
         .then(Nutshell);
+
       } else {
-        // updateArticle(article)
-        // .then(Nutshell);
+        // Keep an eye on this one
+        updateArticle(article)
+        .then(() => {
+          if (isAnyTags) {
+            const savedTagNames = useTags().filter(tag => tagNames.find(t => tag.label.toLowerCase() === t.toLowerCase()));
+            savedTagNames.forEach(tag => saveArticleTag({ articleId: article.id, tagId: tag.id }));
+          }
+        })
+        .then(getArticleTags)
+        .then(Nutshell);
       }
     } else {
       alert('Please make sure all fields are filled out, Title has 3 characters and url has "https://" at the beginning');

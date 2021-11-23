@@ -1,6 +1,8 @@
 import { useArticles } from "./ArticleData.js";
 import { Article } from "./Article.js";
 import { setFormFields } from "./ArticleForm.js";
+import { useArticleTags } from "../articletags/ArticleTagData.js";
+import { useTags } from "../tags/TagData.js";
 
 const eventHub = document.querySelector('#container');
 
@@ -12,7 +14,11 @@ export const ArticleList = () => {
 }
 
 const render = articleCollection => {
-  return articleCollection.map( article => Article(article)).join('');
+  return articleCollection.map( article => {
+    const articleTags = useArticleTags().filter(at => at.articleId === article.id);
+    const tags = articleTags.map(at => useTags().find(tag => tag.id === at.tagId));
+    return Article(article, tags)
+  }).join('');
 }
 
 eventHub.addEventListener('click', e => {

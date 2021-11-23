@@ -14,6 +14,14 @@
   margin-top: 1em;
 }
 
+a.badge.bg-primary {
+  margin-right: .5em;
+}
+
+a.badge.bg-primary:hover {
+  color: #095061;
+}
+
 /* Events */
 .event-hr {
   margin-bottom: 0;

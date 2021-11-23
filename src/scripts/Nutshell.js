@@ -266,7 +266,7 @@ export const Nutshell = () => {
         </div>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6">
+    <div class="col-lg-6 col-md-6">
       <div class="card h-100">
         <div
           class="
@@ -314,7 +314,7 @@ export const Nutshell = () => {
         </div>
       </div>
     </div>
-    <div class="col-lg-2 col-md-2">
+    <!--<div class="col-lg-2 col-md-2">
       <div class="card h-100">
         <div
           class="
@@ -350,7 +350,7 @@ export const Nutshell = () => {
         </div>
         <div class="card-body p-3"></div>
       </div>
-    </div>
+    </div>-->
   </div>
 
   <footer class="footer py-4">

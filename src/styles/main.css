@@ -77,3 +77,7 @@ i[id*="editMessage"]:hover {
   cursor: pointer;
   color: orange;
 }
+
+input[id="message-text"]:focus {
+  outline: 1px solid orange;
+}

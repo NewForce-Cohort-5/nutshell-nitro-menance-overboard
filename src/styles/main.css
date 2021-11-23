@@ -87,11 +87,3 @@ i[id*="editMessage"]:hover {
 input[id="message-text"]:focus {
   outline: 1px solid orange;
 }
-#message-list {
-  overflow-y: auto;
-  max-height: 225px;
-}
-
-.edit-message-button {
-  cursor: pointer;
-}

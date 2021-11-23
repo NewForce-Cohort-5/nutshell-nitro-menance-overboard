@@ -57,6 +57,12 @@
   max-height: 225px;
 }
 
+/* Scroll feature for task list container */
+#task-list {
+  overflow-y: auto;
+  max-height: 225px;
+}
+
 /* Edit button for each task */
 i[id*="editTask"]:hover {
   cursor: pointer;

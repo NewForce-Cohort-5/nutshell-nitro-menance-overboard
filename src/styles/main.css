@@ -47,3 +47,8 @@
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
 }
+
+#message-list{
+    overflow-y: auto;
+    max-height: 225px;
+}

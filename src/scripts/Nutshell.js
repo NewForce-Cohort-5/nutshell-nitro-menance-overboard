@@ -301,18 +301,20 @@ export const Nutshell = () => {
             <span class="font-weight-bold ms-1">5 new</span> messages-->
             
           </p>
+          <div id="message-list">
           ${MessageList()}
+          </div>
         </div>
         
         <div class="card-body p-3">
           <hr class="dark horizontal" />
-          <div class="d-flex">
+          <!--<div class="d-flex">
             <button type="button" class="btn btn-secondary bg-gradient-secondary text-sm my-auto me-1 mb-3">
               New Message
              </button>
-          </div>
+          </div>-->
           <!-- New Message Input Field -->  
-          <div class="input-group input-group-outline my-3">
+          <div class="input-group input-group-outline my-3 message-form">
             ${MessageForm()}
           </div>
         </div>

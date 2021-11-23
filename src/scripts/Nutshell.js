@@ -210,6 +210,7 @@ export const Nutshell = () => {
                       text-uppercase text-secondary text-xxs
                       font-weight-bolder
                       opacity-7
+                      px-3
                     "
                   >
                     Task
@@ -219,7 +220,7 @@ export const Nutshell = () => {
                       text-uppercase text-secondary text-xxs
                       font-weight-bolder
                       opacity-7
-                      px-5
+                      px-4
                     "
                   >
                     Expected Finish Date

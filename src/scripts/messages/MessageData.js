@@ -27,3 +27,13 @@ export const saveMessages = message => {
     })
     .then(getMessages)
 }
+
+export const updateMessage = message => {
+    return fetch(`http://localhost:8088/messages/${message.id}`, {
+      method: "PUT",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(message)
+    }).then(getMessages);
+  }

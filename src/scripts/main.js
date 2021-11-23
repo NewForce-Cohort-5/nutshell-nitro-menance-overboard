@@ -18,7 +18,6 @@ import { getMessages } from "./messages/MessageData.js"
 
 
 const activeUser = sessionStorage.getItem("activeUser")
-const activeEmail = sessionStorage.getItem("activeEmail")
 
 if(!activeUser){
     LoginForm()
@@ -30,6 +29,3 @@ if(!activeUser){
     .then(getMessages)
     .then(Nutshell)
 }
-
-// console.log(activeUser)
-// console.log(activeEmail)

@@ -19,8 +19,14 @@ export const Event = (obj) => {
         
         <div>${formatDate(obj.date)}</div>
         <div><p>${obj.location}</p></div>
-        <button id="edit-event-${obj.id}" type="button" class="btn btn-success text-sm my-auto me-1 mb-0">Edit</button>
-        <button id="delete-event-${obj.id}" type="button" class="btn btn-success text-sm my-auto me-1 mb-0">Delete</button>
+        ${
+          // Only render edit and delete options if current user made the article post
+          +sessionStorage.activeUser === obj.userId ?
+            `<button id="edit-article-${obj.id}" type="button" class="btn btn-success btn-sm text-sm my-auto me-1 mb-0">Edit</button>
+            <button id="delete-article-${obj.id}" type="button" class="btn btn-success btn-sm text-sm my-auto me-1 mb-0">Delete</button>` :
+            ''
+          
+        }
       </article>
     `;
   }

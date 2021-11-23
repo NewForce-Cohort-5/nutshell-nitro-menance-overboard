@@ -6,7 +6,7 @@ const eventHub = document.querySelector('#container');
 
 export const EventList = () => {
     return `<div class="events d-flex">
-      ${render(useEvents().sort((a,b) => new Date(b.date) - new Date(a.date)))}
+      ${render(useEvents().sort((a,b) => new Date(a.date) - new Date(b.date)))}
     </div>`;
 }
 

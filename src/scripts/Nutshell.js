@@ -163,7 +163,7 @@ export const Nutshell = () => {
 <!-- Row 2: Daily Tasks, Chat Messages, Friends  -->
 <div class="row mb-4 m-3">
   <div class="col-lg-6 col-md-6 mb-md-0 mb-4">
-    <div class="card">
+    <div class="card daily-tasks">
       <div
         class="
           card-header

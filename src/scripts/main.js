@@ -2,6 +2,7 @@
 import { getArticles } from "./articles/ArticleData.js"
 import { LoginForm } from "./auth/LoginForm.js"
 import { RegisterForm } from "./auth/RegisterForm.js"
+import { getEvents } from "./events/EventData.js"
 import { Nutshell } from "./Nutshell.js"
 import { getTasks } from "./tasks/TaskDataProvider.js"
 import { getMessages } from "./messages/MessageData.js"
@@ -25,10 +26,10 @@ if(!activeUser){
 } else {
     getTasks()
     .then(getArticles)
+    .then(getEvents)
     .then(getMessages)
     .then(Nutshell)
-    // Nutshell()
 }
 
-console.log(activeUser)
-console.log(activeEmail)
+// console.log(activeUser)
+// console.log(activeEmail)

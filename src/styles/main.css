@@ -1,3 +1,7 @@
+/* Section Heading */
+.section-heading {
+}
+
 /* Articles */
 .article-hr {
   margin-bottom: 0;
@@ -66,4 +70,10 @@ input[id*="completed"]:hover {
 input[id="task-name"]:focus,
 input[id="task-expectedFinish"]:focus {
   outline: 1px solid blue;
+}
+
+/* Edit button for each chat message */
+i[id*="editMessage"]:hover {
+  cursor: pointer;
+  color: orange;
 }

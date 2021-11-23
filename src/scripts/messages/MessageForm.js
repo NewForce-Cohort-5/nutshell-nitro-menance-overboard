@@ -5,7 +5,7 @@ const contentTarget = document.querySelector(".dashboard");
 export const MessageForm = () => {
     return `
             <input type="text" class="form-control" id="message-text" placeholder="type a message to send">
-            <button class="btn btn-secondary bg-gradient-secondary m-0" type="button" id="saveMessage">Send</button>
+            <button class="btn btn-warning bg-gradient-warning m-0" type="button" id="saveMessage">Send</button>
     `
 }
 

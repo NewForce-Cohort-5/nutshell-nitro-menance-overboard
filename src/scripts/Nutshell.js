@@ -82,15 +82,14 @@ export const Nutshell = () => {
           "
         >
           <div class="chart">
-            
+            <h3 class="section-heading mx-5 my-0 text-dark">News Articles</h3>
           </div>
         </div>
       </div>
       <div class="card-body">
         <div class="row">
           <div class="col-4">
-            <h6 class="mb-0">News Articles</h6>
-            <p class="text-sm">Latest Articles Posted</p>
+            
             <button
               type="button"
               class="btn btn-primary text-sm my-auto me-1 mb-0"
@@ -131,7 +130,7 @@ export const Nutshell = () => {
           "
         >
           <div class="chart">
-            
+          <h3 class="section-heading mx-5 my-0 text-dark">Events</h3>
           </div>
         </div>
       </div>
@@ -139,8 +138,7 @@ export const Nutshell = () => {
       <div class="card-body">
       <div class="row">
         <div class="col-4">
-          <h6 class="mb-0">Events</h6>
-          <p class="text-sm">Latest Events Posted</p>
+          
           <button
             type="button"
             class="btn btn-success text-sm my-auto me-1 mb-0"
@@ -179,7 +177,7 @@ export const Nutshell = () => {
           class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1"
         >
           <div class="chart">
-            
+          <h3 class="section-heading mx-5 my-0 text-dark">Daily Tasks</h3>
           </div>
         </div>
       </div>
@@ -187,7 +185,7 @@ export const Nutshell = () => {
       <div class="card-header pb-0">
         <div class="row">
           <div class="col">
-            <h6>Daily Tasks</h6> 
+            
             <div class="input-group justify-content-between">
               <label>Name</label>
               <label>Expected Finish Date</label>
@@ -270,21 +268,20 @@ export const Nutshell = () => {
         >
           <div
             class="
-              bg-gradient-secondary
-              shadow-secondary
+              bg-gradient-warning
+              shadow-warning
               border-radius-lg
               py-3
               pe-1
             "
           >
             <div class="chart">
-              
+            <h3 class="section-heading mx-5 my-0 text-dark">Chat Messages</h3>
             </div>
           </div>
         </div>
         <div class="card-header pb-0">
-          <h6>Chat Messages</h6>
-          <p class="text-sm mb-0">
+         
           <!--<i class="bi bi-bell"></i>
             <span class="font-weight-bold ms-1">5 new</span> messages-->
             

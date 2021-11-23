@@ -23,11 +23,9 @@ if(!activeUser){
     LoginForm()
     RegisterForm()
 } else {
-    
     getTasks()
     .then(getArticles)
     .then(getEvents)
     .then(getMessages)
     .then(Nutshell)
-
 }

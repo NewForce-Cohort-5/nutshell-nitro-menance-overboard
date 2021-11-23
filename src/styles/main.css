@@ -62,3 +62,8 @@ i[id*="editTask"]:hover {
 input[id*="completed"]:hover {
   outline: 1px solid blue;
 }
+
+input[id="task-name"]:focus,
+input[id="task-expectedFinish"]:focus {
+  outline: 1px solid blue;
+}

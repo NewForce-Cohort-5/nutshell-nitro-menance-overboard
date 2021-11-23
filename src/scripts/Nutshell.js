@@ -322,7 +322,7 @@ export const Nutshell = () => {
               pe-1
             "
           >
-            <div class="chart">
+            <div class="chart mx-3">
               
             </div>
           </div>

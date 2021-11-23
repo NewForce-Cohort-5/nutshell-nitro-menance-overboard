@@ -79,9 +79,10 @@ export const Nutshell = () => {
             border-radius-lg
             py-3
             pe-1
+            chart
           "
         >
-          <div class="chart">
+          <div class="">
             <h3 class="section-heading mx-5 my-0 text-dark">News Articles</h3>
           </div>
         </div>
@@ -127,9 +128,10 @@ export const Nutshell = () => {
             border-radius-lg
             py-3
             pe-1
+            chart
           "
         >
-          <div class="chart">
+          <div class="">
           <h3 class="section-heading mx-5 my-0 text-dark">Events</h3>
           </div>
         </div>
@@ -174,9 +176,9 @@ export const Nutshell = () => {
         "
       >
         <div
-          class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1"
+          class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1 chart"
         >
-          <div class="chart">
+          <div class="">
           <h3 class="section-heading mx-5 my-0 text-dark">Daily Tasks</h3>
           </div>
         </div>
@@ -273,9 +275,10 @@ export const Nutshell = () => {
               border-radius-lg
               py-3
               pe-1
+              chart
             "
           >
-            <div class="chart">
+            <div class="">
             <h3 class="section-heading mx-5 my-0 text-dark">Chat Messages</h3>
             </div>
           </div>
@@ -321,9 +324,10 @@ export const Nutshell = () => {
               border-radius-lg
               py-3
               pe-1
+              chart
             "
           >
-            <div class="chart mx-3">
+            <div class="mx-3">
               
             </div>
           </div>

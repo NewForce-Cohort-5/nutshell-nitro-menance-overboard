@@ -87,3 +87,8 @@ i[id*="editMessage"]:hover {
 input[id="message-text"]:focus {
   outline: 1px solid orange;
 }
+
+.chart {
+  width: 90%;
+  margin: 0 auto;
+}

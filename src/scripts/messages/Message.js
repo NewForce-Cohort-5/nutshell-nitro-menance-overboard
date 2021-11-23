@@ -23,7 +23,7 @@ eventHub.addEventListener("click", (eventObject) => {
   if (eventObject.target.id.startsWith("editMessage")) {
     const messageId = +eventObject.target.id.split("--")[1];
     const message = useMessages().find(message => message.id === messageId);
-    document.querySelector('.message-form').innerHTML = MessageEditForm(messageId);
+    document.querySelector('.message-edit-form').innerHTML = MessageEditForm(messageId);
     updateMessage(message);
 }
 })

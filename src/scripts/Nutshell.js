@@ -306,13 +306,14 @@ export const Nutshell = () => {
         </div>
         
         <div class="card-body p-3">
-          <hr class="dark horizontal" />
+          <!--<hr class="dark horizontal" />-->
           <!--<div class="d-flex">
             <button type="button" class="btn btn-secondary bg-gradient-secondary text-sm my-auto me-1 mb-3">
               New Message
              </button>
           </div>-->
           <!-- New Message Input Field -->  
+          <div class="input-group input-group-outline my-3 message-edit-form"></div>
           <div class="input-group input-group-outline my-3 message-form">
             ${MessageForm()}
           </div>

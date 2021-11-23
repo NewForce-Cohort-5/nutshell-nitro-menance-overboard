@@ -6,6 +6,8 @@ import { getEvents } from "./events/EventData.js"
 import { Nutshell } from "./Nutshell.js"
 import { getTasks } from "./tasks/TaskDataProvider.js"
 import { getMessages } from "./messages/MessageData.js"
+import { getTags } from "./tags/TagData.js"
+import { getArticlesTags } from "./articletags/ArticleTagData.js"
 
 
 /*
@@ -25,6 +27,8 @@ if(!activeUser){
 } else {
     getTasks()
     .then(getArticles)
+    .then(getTags)
+    .then(getArticlesTags)
     .then(getEvents)
     .then(getMessages)
     .then(Nutshell)

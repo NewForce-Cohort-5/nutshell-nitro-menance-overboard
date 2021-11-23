@@ -3,6 +3,8 @@ import { ArticleList } from "./articles/ArticleList.js"
 import { LogOutButton } from "./auth/LogoutButton.js"
 import { TaskForm } from "./tasks/TaskForm.js";
 import { TaskList } from "./tasks/TaskList.js";
+import { EventForm } from "./events/EventForm.js";
+import { EventList } from "./events/EventList.js";
 import { MessageForm } from "./messages/MessageForm.js";
 import { MessageList } from "./messages/MessageList.js";
 
@@ -145,19 +147,27 @@ export const Nutshell = () => {
           </div>
         </div>
       </div>
+
       <div class="card-body">
-        <h6 class="mb-0">Events</h6>
-        <p class="text-sm">Latest Articles Posted</p>
-        <hr class="dark horizontal" />
-        <div class="d-flex">
+      <div class="row">
+        <div class="col-4">
+          <h6 class="mb-0">Events</h6>
+          <p class="text-sm">Latest Events Posted</p>
           <button
             type="button"
             class="btn btn-success text-sm my-auto me-1 mb-0"
+            id="new-event"
           >
             New Event
           </button>
         </div>
+        <div id="event-form-container" class="col-8 d-none">
+        ${EventForm()}
+        </div>
       </div>
+      <hr class="dark horizontal event-hr" />
+      ${EventList()}
+    </div>
     </div>
   </div>
 </div>
@@ -359,7 +369,7 @@ export const Nutshell = () => {
             <script>
               document.write(new Date().getFullYear());
             </script>
-            ,
+            2021,
             <a
               href="https://github.com/NewForce-Cohort-5/nutshell-nitro-menance-overboard"
               class="font-weight-bold"

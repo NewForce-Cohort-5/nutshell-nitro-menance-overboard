@@ -14,6 +14,33 @@
   margin-top: 1em;
 }
 
+/* Events */
+.event-hr {
+  margin-bottom: 0;
+}
+.events {
+  max-height: 225px;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+.events article {
+  flex-basis: 33.33%;
+  margin-top: 1em;
+}
+
+.events article:first-child {
+  transform: scale(1);
+  background-color: #efe;
+  margin-right: 1em;
+  flex-basis: 33%;
+  justify-content: center;
+  align-items: center;
+}
+
+.events article:first-child h4 {
+  font-weight: 900;
+}
+
 /* Remove border radius from the center input */
 
 #task-expectedFinish {

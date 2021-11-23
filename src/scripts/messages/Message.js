@@ -5,7 +5,7 @@ import { updateMessage, useMessages } from "./MessageData.js"
 export const Message = (message) => {
     let canEdit;
     if (sessionStorage.activeEmail === message.email){
-        canEdit = `<i id="editMessage--${message.id}" class="bi bi-pencil-square m-3"></i>`
+        canEdit = `<i id="editMessage--${message.id}" class="bi bi-pencil-square m-3 edit-message-button"></i>`
     } else {
         canEdit = ""
     }

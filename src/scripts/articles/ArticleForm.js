@@ -72,11 +72,6 @@ eventHub.addEventListener('click', e => {
       tagsThatNeedSaved.forEach(tag => saveTag(tag));
     }
 
-    // tagNames.forEach(tag => {
-    //   const articleTag = {
-    //     articleId: 
-    //   }
-    // });
     
     debugger;
 
@@ -88,7 +83,15 @@ eventHub.addEventListener('click', e => {
       
       if(e.target.textContent === 'Save Article') {
         saveArticle(article)
-        .then(res => console.log(res))
+        .then(articles => {
+          const newlyPostedArticleId = articles[articles.length - 1].id;
+          tagNames.forEach(tag => {
+            const articleTag = {
+              articleId: newlyPostedArticleId,
+              
+            }
+          });
+        })
         .then(Nutshell);
       } else {
         // updateArticle(article)

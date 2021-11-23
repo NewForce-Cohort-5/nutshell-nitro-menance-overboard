@@ -30,6 +30,7 @@ if(!activeUser){
     .then(getEvents)
     .then(getMessages)
     .then(Nutshell)
+
 }
 
 // console.log(activeUser)

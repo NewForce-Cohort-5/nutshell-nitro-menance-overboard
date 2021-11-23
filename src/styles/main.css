@@ -48,7 +48,17 @@
   border-bottom-left-radius: 0 !important;
 }
 
-#message-list{
-    overflow-y: auto;
-    max-height: 225px;
+#message-list {
+  overflow-y: auto;
+  max-height: 225px;
+}
+
+/* Edit button for each task */
+i[id*="editTask"]:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+input[id*="completed"]:hover {
+  outline: 1px solid blue;
 }

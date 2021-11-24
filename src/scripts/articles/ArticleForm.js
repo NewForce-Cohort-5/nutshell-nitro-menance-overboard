@@ -66,19 +66,6 @@ eventHub.addEventListener('click', e => {
     // Trim all whitespace from the names
     .map(t => t.trim());
 
-    // if (isAnyTags) {
-  
-    //   // Get all of the tags which are already in the db
-    //   const savedTagNames = tagNames.filter(tag => useTags().find(savedTag => tag.toLowerCase() === savedTag.label.toLowerCase()));
-  
-    //   // Get all of the tags that don't have a spot yet in the db
-    //   const tagsThatNeedSaved = tagNames.filter(tag => !savedTagNames.find(savedTag => tag.toLowerCase() === savedTag.toLowerCase()));
-  
-    //   if (tagsThatNeedSaved.length) {
-    //     tagsThatNeedSaved.forEach(tag => saveTag({ label: tag }));
-    //   }
-    // }
-
     if (isValid(article)) {
       document.querySelector('#article_title').value = '';
       document.querySelector('#article_tags').value = '';
@@ -89,13 +76,20 @@ eventHub.addEventListener('click', e => {
         
         saveArticle(article)
         .then(articles => {
-          debugger;
           if (isAnyTags) {
             const newlyPostedArticleId = articles[articles.length - 1].id;
             const savedTagNames = useTags().filter(tag => tagNames.find(t => tag.label.toLowerCase() === t.toLowerCase()));
-            const tagsThatNeedSaved = tagNames.filter(tag => !savedTagNames.find(savedTag => tag.toLowerCase() === savedTag.toLowerCase()));
+            const tagsThatNeedSaved = tagNames.filter(tag => !savedTagNames.find(savedTag => tag.toLowerCase() === savedTag.label.toLowerCase()));
+            // If there are tags that need saved to the database
             if (tagsThatNeedSaved.length) {
-              return tagsThatNeedSaved.map((tag, i) => saveTag({ label: tag }).then(newTags => saveArticleTag({articleId: newlyPostedArticleId, tagId: newTags[i].id})).then(Nutshell));
+              // fml spaghetti for thanksgiving
+              return tagsThatNeedSaved.map((tag) => 
+                saveTag({ label: tag })
+                .then(allTags => 
+                  saveArticleTag({articleId: newlyPostedArticleId, tagId: allTags.find(t => tag === t.label).id}))
+                  .then(() => savedTagNames.map(tag => 
+                    saveArticleTag({ articleId: newlyPostedArticleId, tagId: tag.id })))
+                    .then(Nutshell));
             } else {
               return savedTagNames.map(tag => saveArticleTag({ articleId: newlyPostedArticleId, tagId: tag.id }).then(Nutshell));
             }

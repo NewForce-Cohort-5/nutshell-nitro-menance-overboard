@@ -95,3 +95,12 @@ input[id="message-text"]:focus {
   width: 90%;
   margin: 0 auto;
 }
+
+.progress {
+  margin: auto 0 auto 4em;
+  width: 50%;
+  height: 1em;
+}
+
+.progress-bar {
+}

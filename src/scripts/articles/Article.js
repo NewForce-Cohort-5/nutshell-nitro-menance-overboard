@@ -5,11 +5,12 @@ const formatDate = date => {
   return new Date(date.split(', ')[0]).toString().split(' ').slice(0, 4).join(' ');
 }
 
-export const Article = (obj) => {
+export const Article = (obj, tags) => {
   return `
     <article id="article-${obj.id}">
       <h4>${obj.title}</h4>
       <!-- Author info should go here -->
+      ${tags.map(tag => `<a href="javascript:;" class="badge bg-primary tagId_${tag.id}">${tag.label}</a>`).join('')}
       <div>${obj.user.email} | <a href="${obj.url}" target="_blank" rel="noopener noreferrer">View Article</a></div>
       <div>${formatDate(obj.date)}</div>
       <div><p>${obj.synopsis}</p></div>

@@ -1,4 +1,6 @@
+import { getArticleTags, saveArticleTag } from "../articletags/ArticleTagData.js";
 import { Nutshell } from "../Nutshell.js";
+import { saveTag, useTags } from "../tags/TagData.js";
 import { saveArticle, useArticles, updateArticle } from "./ArticleData.js";
 
 const isValid = article => {
@@ -18,6 +20,10 @@ export const ArticleForm = (articleId = 0) => {
     <label class="form-control-label">Title</label>
     <div class="input-group input-group-outline">
       <input id="article_title" class="form-control" type="text" placeholder="Enter Title">
+    </div>
+    <label class="form-control-label">Tags</label>
+    <div class="input-group input-group-outline">
+      <input id="article_tags" class="form-control" type="text" placeholder="Enter Title">
     </div>
     <label class="form-control-label">URL</label>
     <div class="input-group input-group-outline">
@@ -41,7 +47,6 @@ const eventHub = document.querySelector('#container');
 eventHub.addEventListener('click', e => {
   if (e.target.id === 'save-article') {
     e.preventDefault();
-
     // The article is now shared between the create and edit article form
     const article = {
       title: document.querySelector('#article_title').value,
@@ -52,16 +57,54 @@ eventHub.addEventListener('click', e => {
       date: new Date(Date.now()).toISOString()
     }
 
+    const articleTagsElement = document.querySelector('#article_tags');
+
+    const isAnyTags = articleTagsElement.value !== ''
+
+    // Get the tag names from the input field and separate them into an array by commas
+    const tagNames = articleTagsElement.value.split(',')
+    // Trim all whitespace from the names
+    .map(t => t.trim());
+
     if (isValid(article)) {
       document.querySelector('#article_title').value = '';
+      document.querySelector('#article_tags').value = '';
       document.querySelector('#article_url').value = '';
       document.querySelector('#article_synopsis').value = '';
       
       if(e.target.textContent === 'Save Article') {
+        
         saveArticle(article)
-        .then(Nutshell);
+        .then(articles => {
+          if (isAnyTags) {
+            const newlyPostedArticleId = articles[articles.length - 1].id;
+            const savedTagNames = useTags().filter(tag => tagNames.find(t => tag.label.toLowerCase() === t.toLowerCase()));
+            const tagsThatNeedSaved = tagNames.filter(tag => !savedTagNames.find(savedTag => tag.toLowerCase() === savedTag.label.toLowerCase()));
+            // If there are tags that need saved to the database
+            if (tagsThatNeedSaved.length) {
+              // fml spaghetti for thanksgiving
+              return tagsThatNeedSaved.map((tag) => 
+                saveTag({ label: tag })
+                .then(allTags => 
+                  saveArticleTag({articleId: newlyPostedArticleId, tagId: allTags.find(t => tag === t.label).id}))
+                  .then(() => savedTagNames.map(tag => 
+                    saveArticleTag({ articleId: newlyPostedArticleId, tagId: tag.id })))
+                    .then(Nutshell));
+            } else {
+              return savedTagNames.map(tag => saveArticleTag({ articleId: newlyPostedArticleId, tagId: tag.id }).then(Nutshell));
+            }
+          }
+        });
+
       } else {
+        // Keep an eye on this one
         updateArticle(article)
+        .then(() => {
+          if (isAnyTags) {
+            const savedTagNames = useTags().filter(tag => tagNames.find(t => tag.label.toLowerCase() === t.toLowerCase()));
+            savedTagNames.forEach(tag => saveArticleTag({ articleId: article.id, tagId: tag.id }));
+          }
+        })
         .then(Nutshell);
       }
     } else {
@@ -86,3 +129,10 @@ eventHub.addEventListener('click', e => {
 
   }
 });
+
+// May add key up listener
+// eventHub.addEventListener('keyup', e => {
+//   if (e.target.id === 'article_tags') {
+//     console.log(e.key === ",")
+//   }
+// });

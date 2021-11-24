@@ -2,7 +2,7 @@ import { ArticleForm } from "./articles/ArticleForm.js";
 import { ArticleList } from "./articles/ArticleList.js"
 import { LogOutButton } from "./auth/LogoutButton.js"
 import { TaskForm } from "./tasks/TaskForm.js";
-import { TaskList } from "./tasks/TaskList.js";
+import { CompletedTaskList, TaskList } from "./tasks/TaskList.js";
 import { EventForm } from "./events/EventForm.js";
 import { EventList } from "./events/EventList.js";
 import { MessageForm } from "./messages/MessageForm.js";
@@ -249,6 +249,7 @@ export const Nutshell = () => {
               <tbody class="task-list">
                 ${TaskList()}
               </tbody>
+              ${CompletedTaskList()}
             </table>
           </div>
         </div>

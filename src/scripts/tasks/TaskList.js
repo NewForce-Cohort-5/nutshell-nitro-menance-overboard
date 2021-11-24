@@ -14,10 +14,8 @@ export const TaskList = () => {
 
 // Component that tracks progress of completed task vs total tasks
 export const CompletedProgress = () => {
-  // const progressBar= document.querySelector('.progress-bar')
 
   const tasksArray = useTasks();
-  let totalTasks = tasksArray.length;
 
   const completedTasksArray = tasksArray.filter(singleTask => {
     if ((singleTask.userId === +sessionStorage.activeUser) && singleTask.completed){
@@ -25,8 +23,16 @@ export const CompletedProgress = () => {
     }
   })
 
+  const totalTasksArray = tasksArray.filter(singleTask => {
+    if(singleTask.userId === +sessionStorage.activeUser) {
+      return singleTask
+    }
+  })
+
+  let totalTasks = totalTasksArray.length;
   let completedTasks = completedTasksArray.length;
   let completedProgressPercentage = Math.round((completedTasks/totalTasks) * 100);
+
   console.log(`Completed Tasks for user id ${sessionStorage.activeUser}: ${completedTasks}`)
   console.log(`Total Tasks for user id ${sessionStorage.activeUser}: ${totalTasks}`)
   console.log(`Percentage completed for user id ${sessionStorage.activeUser}: ${completedProgressPercentage}`)

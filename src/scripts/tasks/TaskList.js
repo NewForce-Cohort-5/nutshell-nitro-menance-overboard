@@ -33,11 +33,11 @@ export const CompletedProgress = () => {
   let completedTasks = completedTasksArray.length;
   let completedProgressPercentage = Math.round((completedTasks/totalTasks) * 100);
 
-  console.log(`Completed Tasks for user id ${sessionStorage.activeUser}: ${completedTasks}`)
-  console.log(`Total Tasks for user id ${sessionStorage.activeUser}: ${totalTasks}`)
-  console.log(`Percentage completed for user id ${sessionStorage.activeUser}: ${completedProgressPercentage}`)
+  // console.log(`Completed Tasks for user id ${sessionStorage.activeUser}: ${completedTasks}`)
+  // console.log(`Total Tasks for user id ${sessionStorage.activeUser}: ${totalTasks}`)
+  // console.log(`Percentage completed for user id ${sessionStorage.activeUser}: ${completedProgressPercentage}`)
  
   return `
-    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: ${completedProgressPercentage}%; height:100%;" aria-valuenow="${completedProgressPercentage}" aria-valuemin="0" aria-valuemax="100">${completedProgressPercentage}%</div>
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: ${completedProgressPercentage}%; height:100%;" aria-valuenow="${completedProgressPercentage}" aria-valuemin="0" aria-valuemax="100">${completedProgressPercentage}% tasks completed</div>
   `
 }

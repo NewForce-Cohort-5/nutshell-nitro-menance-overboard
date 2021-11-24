@@ -12,6 +12,18 @@ export const TaskList = () => {
     
 };
 
+
+export const CompletedTaskList = () => {
+
+  const tasksArray = useTasks();
+  return tasksArray.map(singleTask => {
+    if (singleTask.completed === true && singleTask.userId === +sessionStorage.activeUser){
+      return Task(singleTask);
+    }
+  }).join('');
+    
+};
+
 // Component that tracks progress of completed task vs total tasks
 export const CompletedProgress = () => {
 
@@ -41,3 +53,4 @@ export const CompletedProgress = () => {
     <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: ${completedProgressPercentage}%; height:100%;" aria-valuenow="${completedProgressPercentage}" aria-valuemin="0" aria-valuemax="100">${completedProgressPercentage}% tasks completed</div>
   `
 }
+

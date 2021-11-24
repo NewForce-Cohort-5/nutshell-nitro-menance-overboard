@@ -10,6 +10,12 @@ const formatDate = date => {
 }
 
 export const Task = (task) => {
+  let checked;
+  if (task.completed === true){
+    checked = "checked"
+  } else {
+    checked = ""
+  }
   return `
     <tr class="task-card">
       <td>
@@ -32,13 +38,14 @@ export const Task = (task) => {
           <i id="editTask--${task.id}" class="bi bi-pencil-square m-3"></i>
         </div>
       </td>
-      <td>
-        <div class="form-check form-check-inline">
+      <td> 
+      <div class="form-check form-check-inline">
           <input
             class="form-check-input"
             type="checkbox"
             id="completed-${task.id}"
             value="option1"
+            ${checked}
           />
         </div>
       </td>
@@ -56,7 +63,11 @@ eventHub.addEventListener("click", (eventObject) => {
   if (eventObject.target.id.startsWith('completed')) {
     const taskId = +eventObject.target.id.split("-")[1];
     const task = useTasks().find(task => task.id === taskId);
-    task.completed = true;
+    if (task.completed === false){
+      task.completed = true;
+    } else if (task.completed === true){
+      task.completed = false;
+    }
     updateTask(task).then(Nutshell);
   }
 })

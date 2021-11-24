@@ -69,7 +69,7 @@ a.badge.bg-primary:hover {
 }
 
 /* Scroll feature for task list container */
-#task-list {
+.table-responsive {
   overflow-y: auto;
   max-height: 225px;
 }

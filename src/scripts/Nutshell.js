@@ -7,6 +7,7 @@ import { EventForm } from "./events/EventForm.js";
 import { EventList } from "./events/EventList.js";
 import { MessageForm } from "./messages/MessageForm.js";
 import { MessageList } from "./messages/MessageList.js";
+import { CompletedProgress } from "./tasks/TaskList.js";
 
 const contentTarget = document.querySelector('.dashboard')
 
@@ -34,7 +35,7 @@ export const Nutshell = () => {
 >
   <div class="container-fluid py-1 px-3">
     <nav aria-label="breadcrumb">
-      <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+    <h6 class="font-weight-bolder mb-0">Dashboard</h6>
     </nav>
     <div
       class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
@@ -177,8 +178,11 @@ export const Nutshell = () => {
         <div
           class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1 chart"
         >
-          <div class="">
+          <div class="d-flex align-items-center">
           <h3 class="section-heading mx-5 my-0 text-dark">Daily Tasks</h3>
+          <div class="progress">
+            ${CompletedProgress()}
+          </div>
           </div>
         </div>
       </div>

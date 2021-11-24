@@ -17,7 +17,7 @@ export const saveArticleTag = articleTag => {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(articleTag)
-  });
+  }).then(getArticleTags);
 }
 
 export const updateArticleTag = articleTag => {

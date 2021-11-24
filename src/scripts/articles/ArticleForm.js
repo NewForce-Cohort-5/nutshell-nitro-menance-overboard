@@ -47,7 +47,6 @@ const eventHub = document.querySelector('#container');
 eventHub.addEventListener('click', e => {
   if (e.target.id === 'save-article') {
     e.preventDefault();
-
     // The article is now shared between the create and edit article form
     const article = {
       title: document.querySelector('#article_title').value,
@@ -67,18 +66,18 @@ eventHub.addEventListener('click', e => {
     // Trim all whitespace from the names
     .map(t => t.trim());
 
-    if (isAnyTags) {
+    // if (isAnyTags) {
   
-      // Get all of the tags which are already in the db
-      const savedTagNames = tagNames.filter(tag => useTags().find(savedTag => tag.toLowerCase() === savedTag.label.toLowerCase()));
+    //   // Get all of the tags which are already in the db
+    //   const savedTagNames = tagNames.filter(tag => useTags().find(savedTag => tag.toLowerCase() === savedTag.label.toLowerCase()));
   
-      // Get all of the tags that don't have a spot yet in the db
-      const tagsThatNeedSaved = tagNames.filter(tag => !savedTagNames.find(savedTag => tag.toLowerCase() === savedTag.toLowerCase()));
+    //   // Get all of the tags that don't have a spot yet in the db
+    //   const tagsThatNeedSaved = tagNames.filter(tag => !savedTagNames.find(savedTag => tag.toLowerCase() === savedTag.toLowerCase()));
   
-      if (tagsThatNeedSaved.length) {
-        tagsThatNeedSaved.forEach(tag => saveTag({ label: tag }));
-      }
-    }
+    //   if (tagsThatNeedSaved.length) {
+    //     tagsThatNeedSaved.forEach(tag => saveTag({ label: tag }));
+    //   }
+    // }
 
     if (isValid(article)) {
       document.querySelector('#article_title').value = '';
@@ -90,14 +89,18 @@ eventHub.addEventListener('click', e => {
         
         saveArticle(article)
         .then(articles => {
+          debugger;
           if (isAnyTags) {
             const newlyPostedArticleId = articles[articles.length - 1].id;
             const savedTagNames = useTags().filter(tag => tagNames.find(t => tag.label.toLowerCase() === t.toLowerCase()));
-            savedTagNames.forEach(tag => saveArticleTag({ articleId: newlyPostedArticleId, tagId: tag.id }));
+            const tagsThatNeedSaved = tagNames.filter(tag => !savedTagNames.find(savedTag => tag.toLowerCase() === savedTag.toLowerCase()));
+            if (tagsThatNeedSaved.length) {
+              return tagsThatNeedSaved.map((tag, i) => saveTag({ label: tag }).then(newTags => saveArticleTag({articleId: newlyPostedArticleId, tagId: newTags[i].id})).then(Nutshell));
+            } else {
+              return savedTagNames.map(tag => saveArticleTag({ articleId: newlyPostedArticleId, tagId: tag.id }).then(Nutshell));
+            }
           }
-        })
-        .then(getArticleTags)
-        .then(Nutshell);
+        });
 
       } else {
         // Keep an eye on this one
@@ -108,7 +111,6 @@ eventHub.addEventListener('click', e => {
             savedTagNames.forEach(tag => saveArticleTag({ articleId: article.id, tagId: tag.id }));
           }
         })
-        .then(getArticleTags)
         .then(Nutshell);
       }
     } else {

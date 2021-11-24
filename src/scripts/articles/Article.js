@@ -10,7 +10,7 @@ export const Article = (obj, tags) => {
     <article id="article-${obj.id}">
       <h4>${obj.title}</h4>
       <!-- Author info should go here -->
-      ${tags.map(tag => `<a href="javascript:;" class="badge bg-primary">${tag.label}</a>`).join('')}
+      ${tags.map(tag => `<a href="javascript:;" class="badge bg-primary tagId_${tag.id}">${tag.label}</a>`).join('')}
       <div>${obj.user.email} | <a href="${obj.url}" target="_blank" rel="noopener noreferrer">View Article</a></div>
       <div>${formatDate(obj.date)}</div>
       <div><p>${obj.synopsis}</p></div>

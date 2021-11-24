@@ -12,7 +12,6 @@ const contentTarget = document.querySelector('.dashboard')
 
 export const Nutshell = () => {
     // Render all your UI components here
- 
   contentTarget.innerHTML = `
   
   <div class="

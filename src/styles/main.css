@@ -49,6 +49,12 @@ a.badge.bg-primary:hover {
   font-weight: 900;
 }
 
+/* Tasks */
+.task-list {
+  overflow-y: auto;
+  max-height: 225px;
+}
+
 /* Remove border radius from the center input */
 
 #task-expectedFinish {
@@ -56,11 +62,44 @@ a.badge.bg-primary:hover {
   border-bottom-left-radius: 0 !important;
 }
 
-#message-list{
-    overflow-y: auto;
-    max-height: 225px;
+/* Chat message list */
+#message-list {
+  overflow-y: auto;
+  max-height: 225px;
 }
 
-.edit-message-button{
+/* Scroll feature for task list container */
+#task-list {
+  overflow-y: auto;
+  max-height: 225px;
+}
+
+/* Edit button for each task */
+i[id*="editTask"]:hover {
   cursor: pointer;
+  color: blue;
+}
+
+input[id*="completed"]:hover {
+  outline: 1px solid blue;
+}
+
+input[id="task-name"]:focus,
+input[id="task-expectedFinish"]:focus {
+  outline: 1px solid blue;
+}
+
+/* Edit button for each chat message */
+i[id*="editMessage"]:hover {
+  cursor: pointer;
+  color: orange;
+}
+
+input[id="message-text"]:focus {
+  outline: 1px solid orange;
+}
+
+.chart {
+  width: 90%;
+  margin: 0 auto;
 }

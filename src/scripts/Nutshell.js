@@ -52,19 +52,6 @@ export const Nutshell = () => {
             ${LogOutButton()}
           </a>
         </li>
-        <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-          <a
-            href="javascript:;"
-            class="nav-link text-body p-0"
-            id="iconNavbarSidenav"
-          >
-            <div class="sidenav-toggler-inner">
-              <i class="sidenav-toggler-line"></i>
-              <i class="sidenav-toggler-line"></i>
-              <i class="sidenav-toggler-line"></i>
-            </div>
-          </a>
-        </li>
       </ul>
     </div>
   </div>
@@ -91,18 +78,18 @@ export const Nutshell = () => {
             border-radius-lg
             py-3
             pe-1
+            chart
           "
         >
-          <div class="chart">
-            
+          <div class="">
+            <h3 class="section-heading mx-5 my-0 text-dark">News Articles</h3>
           </div>
         </div>
       </div>
       <div class="card-body">
         <div class="row">
           <div class="col-4">
-            <h6 class="mb-0">News Articles</h6>
-            <p class="text-sm">Latest Articles Posted</p>
+            
             <button
               type="button"
               class="btn btn-primary text-sm my-auto me-1 mb-0"
@@ -140,10 +127,11 @@ export const Nutshell = () => {
             border-radius-lg
             py-3
             pe-1
+            chart
           "
         >
-          <div class="chart">
-            
+          <div class="">
+          <h3 class="section-heading mx-5 my-0 text-dark">Events</h3>
           </div>
         </div>
       </div>
@@ -151,8 +139,7 @@ export const Nutshell = () => {
       <div class="card-body">
       <div class="row">
         <div class="col-4">
-          <h6 class="mb-0">Events</h6>
-          <p class="text-sm">Latest Events Posted</p>
+          
           <button
             type="button"
             class="btn btn-success text-sm my-auto me-1 mb-0"
@@ -175,7 +162,7 @@ export const Nutshell = () => {
 <!-- Row 2: Daily Tasks, Chat Messages, Friends  -->
 <div class="row mb-4 m-3">
   <div class="col-lg-6 col-md-6 mb-md-0 mb-4">
-    <div class="card">
+    <div class="card daily-tasks">
       <div
         class="
           card-header
@@ -188,10 +175,10 @@ export const Nutshell = () => {
         "
       >
         <div
-          class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1"
+          class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1 chart"
         >
-          <div class="chart">
-            
+          <div class="">
+          <h3 class="section-heading mx-5 my-0 text-dark">Daily Tasks</h3>
           </div>
         </div>
       </div>
@@ -199,7 +186,7 @@ export const Nutshell = () => {
       <div class="card-header pb-0">
         <div class="row">
           <div class="col">
-            <h6>Daily Tasks</h6> 
+            
             <div class="input-group justify-content-between">
               <label>Name</label>
               <label>Expected Finish Date</label>
@@ -222,6 +209,7 @@ export const Nutshell = () => {
                       text-uppercase text-secondary text-xxs
                       font-weight-bolder
                       opacity-7
+                      px-3
                     "
                   >
                     Task
@@ -231,7 +219,7 @@ export const Nutshell = () => {
                       text-uppercase text-secondary text-xxs
                       font-weight-bolder
                       opacity-7
-                      px-5
+                      px-4
                     "
                   >
                     Expected Finish Date
@@ -281,21 +269,21 @@ export const Nutshell = () => {
         >
           <div
             class="
-              bg-gradient-secondary
-              shadow-secondary
+              bg-gradient-warning
+              shadow-warning
               border-radius-lg
               py-3
               pe-1
+              chart
             "
           >
-            <div class="chart">
-              
+            <div class="">
+            <h3 class="section-heading mx-5 my-0 text-dark">Chat Messages</h3>
             </div>
           </div>
         </div>
         <div class="card-header pb-0">
-          <h6>Chat Messages</h6>
-          <p class="text-sm mb-0">
+         
           <!--<i class="bi bi-bell"></i>
             <span class="font-weight-bold ms-1">5 new</span> messages-->
             
@@ -335,9 +323,10 @@ export const Nutshell = () => {
               border-radius-lg
               py-3
               pe-1
+              chart
             "
           >
-            <div class="chart">
+            <div class="mx-3">
               
             </div>
           </div>

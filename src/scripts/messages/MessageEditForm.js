@@ -9,7 +9,7 @@ export const MessageEditForm = (messageId) => {
     return `
       <input type="text" class="form-control" id="message-text" value="${messageWeWantToEdit.text}" />
       <input type="hidden" id="message-timestamp" value="${messageWeWantToEdit.timestamp}" />
-      <button id="saveMessageChanges-${messageId}" class="btn btn-secondary bg-gradient-secondary m-0">Save Changes</button>
+      <button id="saveMessageChanges-${messageId}" class="btn btn-warning bg-gradient-warning m-0">Save Changes</button>
     `;
   }
 
